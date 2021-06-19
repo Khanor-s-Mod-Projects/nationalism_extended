@@ -1,0 +1,10 @@
+﻿l_spanish:
+ 
+ ####--Decisions--####
+ ##generic political actions
+ MNM_counteract_german_alignment:0 "Contrarrestar Presión Política Alemana"
+ MNM_counteract_german_alignment_desc:0 "Los alemanes inculcan muchos de sus ideales en nuestra nación a través de relaciones económicas, diplomáticas y de estadistas que se expanden a través de Europa. Mientras que algunos partidarios de estas ideas no lo consideran problemático, otros son más escépticos. De hecho, esto podría causar tensión política en nuestro país, y algunos incluso han llegado a pensar que con tiempo, esto podría llevarnos a no ser nada más que un títere de Alemania."
+ MNM_counteract_foreign_influences:0 "Contrarrestar Influencias Políticas del Extranjero"
+ MNM_counteract_foreign_influences_desc:0 "Algunas influencias del extranjero están afectando nuestras políticas y opiniones públicas. Aunque esto puede ser soportado, e incluso conveniente en algunos casos, siempre podemos hacer algo al respecto. Con algunos esfuerzos de parte del gobierno, podríamos bloquear estas influencias antes de que se expandan, mientras nuestros medios de comunicación inculcan la versión más \"verídica\" de los hechos."
+ MNM_counteract_us_pressure:0 "Contrarrestar Presión Política Estadounidense"
+ MNM_counteract_us_pressure_desc:0 "Los estadounidenses llevan considerando al continente americano su patio trasero desde hace mucho tiempo, empujando a países a adoptar políticas beneficiosas para ellos mismos. Con razones que varían entre bloquear la influencia europea, hacer intercambios de bienes rentables con otros países, detener cualquier intento de nacionalización o incluso simplemente asegurarse de que ninguna otra potencia en el hemisferio oeste pueda rivalizar con el dominio estadounidense en dicho hemisferio, [USA.GetNameDef] mantiene un indirecto, pero firme, control en Las Américas.\n\nSin embargo, con un liderazgo estable, probablemente podríamos eliminar esta influencia, si lo deseásemos."

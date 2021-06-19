@@ -1,0 +1,318 @@
+﻿l_english:
+ 
+ ####--Focuses--####
+ ##General purpose tooltips
+ NE_wip_tt:0 "\n§RWORK IN PROGRESS§! - Full functionality is not yet implemented for this §Yfocus§!. Consider a different path for now, as it has at best partial functionality.\n"
+ NE_enable_puppet_states_tt:0 "Allows the creation of §Ypuppet states§! during peace conferences.\n"
+ NE_political_advisor_needed_tt:0 "\n\nA §Ypolitical advisor§! will be needed to finish our transition into a new §YGovernment form§!, whether by election, referendum, or force.\n"
+ 
+ ##Generic focuses
+ NE_synthetic_oil_effort:0 "Synthetic Oil Effort"
+ NE_synthetic_oil_effort_desc:0 "Following our rapid industrial buildup, we now need oil and rubber to fuel these new industries, whether civilian or military. Fortunately recent scientific advancements have also allowed us to set up a large synthetic oil facility for such needs."
+ NE_modern_aviation:0 "Modern Aviation"
+ NE_modern_aviation_desc:0 "New technologies have opened up the possibility of aircraft reaching previously unmatched velocities. With the utilization of wind tunnels and other modern testing facilities, the military application of these planes draws nearer."
+ NE_advanced_production_methods:0 "Advanced Production Methods"
+ NE_advanced_production_methods_desc:0 "Assemby line production, new machine tools and standardized parts have made our production faster. This means fewer factories will be needed to handle the processing of raw materials into consumer goods, freeing up factories for our other needs. Our armament production and dockyards should also see some benefits by adopting these new routines."
+ NE_advanced_arms_production:0 "Advanced Arms Production"
+ NE_advanced_arms_production_desc:0 "With new production methods, we also have a choice of adapting our factories to produce certain goods faster. We could adapt our factories for producing rifles and artillery faster, or making larger assembly lines and bays which can handle the weight and size of a chassis, tank barrel or even finished vehicle. Should we rely on the adaptability of an infantry army?"
+ NE_advanced_vehicle_production:0 "Advanced Vehicle Production"
+ NE_advanced_vehicle_production_desc:0 "With new production methods, we also have a choice of adapting our factories to produce certain goods faster. We could adapt our factories for producing rifles and artillery faster, or making larger assembly lines and bays which can handle the weight and size of a chassis, tank barrel or even finished vehicle. Should we rely on the mobility of a motorized army?"
+ NE_traditionalist_ethos:0 "Traditionalist Ethos"
+ NE_traditionalist_ethos_desc:0 "In these times of radical changes to Governments and social values, there are those who want to err on the side of caution, or maybe even promote the values of old. It could well be that our society would be all the better for it."
+ NE_traditionalist_ethos_tt:0 "\nEnables §Ydecisions§! to start transitioning into a more traditional state, if we're not already following the relevant §Yideology§!.\n"
+ NE_rights_and_responsibilities:0 "Rights and Responsibilities"
+ NE_rights_and_responsibilities_desc:0 "Now that we know what kind of values we want to stand for, it would probably benefit us to figure out what the rights of and responsibilites of our People should be, as well as the extent of power of our leaders."
+ NE_our_ancestral_lands:0 "Our Ancestral Lands"
+ NE_our_ancestral_lands_desc:0 "Few countries have managed to hold on to all the territory they once held. However, if our historical territory should one day be ripe for the taking, why shouldn't we go for a harvest?"
+ NE_old_values_in_a_new_world:0 "Old Values in a New World"
+ NE_old_values_in_a_new_world_desc:0 "Maybe it's for the better if we adopt some of the nicer things the modern World has to offer. Let us reward citizens that uphold old, traditional values with new, modern comforts."
+ NE_spread_our_values:0 "Spread our Values"
+ NE_spread_our_values_desc:0 "Our society holds good values now. But can our neighbors say the same? And can other countries in the region claim so? And indeed, what about the rest of the rabble of the continent? Or neighbors of our continent? If our values aren't there, it's about time we do something about that."
+ NE_guard_divisions:0 "Guard Divisions"
+ NE_guard_divisions_desc:0 "To defend our state, establishing or expanding National Guards fitting to our Government and Values (whether that be Royal Guards, Republican Guards, Federal Guards, etc.) would seem to be a sound measure. No doubt our citizens will fight hard for their beloved country and its leaders."
+ NE_military_cooperation:0 "Military Cooperation"
+ NE_military_cooperation_desc:0 "Now that we have reliable allies to aid us in these uncertain times, it's time for us to take another step for military cooperation. Our officers, high and low, could learn from the experiences of our allies' armies. Military innovations and new tactics can be shared across the borders for the benefits of all our officers. All strictly within our alliance, of course."
+ 
+ ##Hungarian focuses (created for NE)
+ HUN_austro-hungarian_diplomacy:0 "Austro-Hungarian Diplomacy"
+ HUN_austro-hungarian_diplomacy_desc:0 "We should make use of our traditional diplomatic influence and experience to secure our newly reborn Empire. If we use what common grounds or mutual history we have with others, we could make some new friends abroad."
+ HUN_align_bulgaria:0 "Align Bulgaria"
+ HUN_align_bulgaria_desc:0 "In addition to us, Germany and the Ottoman Empire, the fourth nation to suffer the consequences of choosing a losing side during the early 1900s was Bulgaria. Their dream of becoming a Balkan powerhouse was crushed first by its fellow Balkan League members, and then by the Entente. By allowing them to align with us, we'll give them protection, opportunity, and finally, a winning team."
+ HUN_restore_greater_bulgaria:0 "Restore Greater Bulgaria"
+ HUN_restore_greater_bulgaria_desc:0 "As the Bulgarians prove their loyalty and mettle, the Archduke and our most skilled statesmen have promised working towards restoring Bulgaria's power and influence in the Balkans. In return for us allowing them to be our right hand, and the number two power on the Peninsula, they've agreed to a closer union and preferential trade deals. Glory to us and our friends!"
+ HUN_build_up_the_core:0 "Build up the Core"
+ HUN_build_up_the_core_desc:0 "With new construction techniques, we can set up large industrial complexes and supply networks in our protected core regions. This will ensure the nation can produce a variety of goods."
+ HUN_exploit_the_pannonian_deposits:0 "Exploit the Pannonian Deposits"
+ HUN_exploit_the_pannonian_deposits_desc:0 "We should exploit the oil deposits that lie within our newly recaptured territory. Though the quantity is meagre, we need all we can get for our resurgent military."
+ 
+ 
+ 
+ ####--Ideas--####
+ ##Generic country ideas/national spirits
+ NE_wartime_research_and_development:0 "Wartime R&D"
+ NE_wartime_research_and_development_desc:0 "Cross border cooperation and interweaving our research with the military industry have allowed us to progress even faster."
+ NE_advanced_production_methods_idea:0 "Advanced Production Methods"
+ NE_advanced_production_methods_idea_desc:0 "New innovative methods have been applied to all the big producers within our nation. Assembly lines, welding tools and construction bays for vehicles have all but ensured our civilians and soldiers will have what they need."
+ NE_arms_production_idea:0 "Advanced Arms Production"
+ NE_arms_production_idea_desc:0 "Small to medium sized assembly lines and multiple workbenches for assembling the finer details of a rifle can now be found in most of our military factories, which have been optimized for the production of small arms and artillery."
+ NE_vehicle_production_idea:0 "Advanced Vehicle Production"
+ NE_vehicle_production_idea_desc:0 "Large assembly lines and bays for construction and repair can now be found in almost all of our military production facilities. Special lifts have made fitting the belts on to the side of our trucks and tanks easier than ever. Our factories are primed for vehicle production. Maybe our auto industry will take off after the war is over?"
+ NE_leadership_initiatives:0 "Leadership Initiatives"
+ NE_leadership_initiatives_desc:0 "Our officers, high and low, now have access to the military innovations of our allies, as well as some of the newest tactics devised by them. Whether these developments come from peacetime or war, we can now learn from their experiences as well as our own. Reciprocation may be expected."
+ NE_natural_political_drift:0 "Natural political drift"
+ NE_natural_political_drift_desc:0 "People's opinions require effort to control. Nowadays, conservative and democratic movements have a broad appeal, and propaganda would be needed to change this."
+ NE_traditionalist_ethos_idea:0 "Traditionalist Ethos"
+ NE_traditionalist_ethos_idea_desc:0 "Traditional values are now promoted in our society. Our populace will be better off with healthy, traditional values than they would be with the radical values of the age, which seek to tear apart the fabric of our society."
+ NE_traditionalist_ethos_idea2:0 "Traditionalist Ethos"
+ NE_traditionalist_ethos_idea2_desc:0 "Traditional values are now promoted in our society. Our populace will be better off with healthy, traditional values than they would be with the radical values of the age, which seek to tear apart the fabric of our society."
+ NE_traditionalist_ethos_idea_chill:0 "Traditionalist Ethos"
+ NE_traditionalist_ethos_idea_chill_desc:0 "Traditional values are now promoted in our society. Our populace will be better off with healthy, traditional values than they would be with the radical values of the age, which seek to tear apart the fabric of our society.\n\nWith that being said, let's not overdo it either..."
+ NE_traditionalist_ethos_idea_no_chill:0 "Traditionalist Ethos"
+ NE_traditionalist_ethos_idea_no_chill_desc:0 "Traditional values are now promoted in our society. Our populace will be better off with healthy, traditional values than they would be with the radical values of the age, which seek to tear apart the fabric of our society.\n\nThe importance of this matter can not be overstated..."
+ NE_ideological_expeditions:0 "Ideological Expeditions"
+ NE_ideological_expeditions_desc:0 "The fine supporters of our way of life are not only willing to serve as loyal militias within [Root.GetNameDef], but also to travel to other conflicts around the world to support the side we should deem most righteous. Other countries had best be nice to us."
+ NE_national_guard:0 "National Guard of [Root.GetNameDef]"
+ NE_national_guard_desc:0 "Our proud, [Root.GetAdjective] Guard formations will draw our finest into their ranks. No doubt they will fight hard for our cause, should the need arise..."
+ NE_anti-extremist_rhetoric:0 "Anti-extremist Rhetoric"
+ NE_anti-extremist_rhetoric_desc:0 "Many of our influential politicians have taken a collective stance against extremist ideologies, and as a result our people are more vary of fascism and communism."
+ 
+ ##Hungarian country ideas
+ HUN_grand_rearmament:0 "Grand Rearmament"
+ HUN_grand_rearmament_desc:0 "As the political situation has changed, we can now take bolder measures to bring our military up to scratch."
+ HUN_habsburg_influence:0 "Habsburg Influence"
+ HUN_habsburg_influence_desc:0 "The Monarchist and Traditionalist Ideals emanting from Otto von Habsburg's emerging Empire are helping us counteract the extremist ideals common to this age."
+ 
+ ##Country ideas applied to other nations
+ HUN_austro-hungarian_economic_ties:0 "Austro-Hungarian Economic Ties"
+ HUN_austro-hungarian_economic_ties_desc:0 "Allowing tight economic cooperation with Austria-Hungary has allowed our economy to benefit from their expertise."
+ 
+ 
+ 
+ ####--Events--####
+ ##Country Events
+ nationalism_extended.1.t:0 "Traditionalists Demand Referendum"
+ nationalism_extended.1.d:0 "The rapidly growing [Root.GetAdjective] traditionalist movements have long wanted more power to spread their ideals. As their public support has grown rapidly, they're now calling [Root.GetLeader] a roadblock for their wholesome values.\n\nThe call for a referendum has been dismissed as just their usual complaints by [Root.GetRulingParty] members so far, but at least it's a political measure. If we do not act now, more resentment is sure to brew from the traditionalists and authoritarians of our country."
+ nationalism_extended.1.c:0 "If the people want their traditional values, we'll hold the referendum."
+ 
+ nationalism_extended.3.t:0 "Traditionalist Speech Held"
+ nationalism_extended.3.d:0 "Over the last week, we've been eagerly preparing for the traditionalist rally today. One of the main events of the day was the speech held in favor of implementing traditional rule and norms in [Root.GetNameDef]. As the speech drew to a close, it became clear that the performance by our lead orator was truly..."
+ nationalism_extended.3.a:0 "...world-class rhetoric!"
+ nationalism_extended.3.b:0 "...an amazing speech!"
+ nationalism_extended.3.c:0 "...an impressive performance"
+ nationalism_extended.3.p:0 "...about what we expected"
+ nationalism_extended.3.e:0 "...not his best performance"
+ nationalism_extended.3.f:0 "...a disappointing speech..."
+ nationalism_extended.3.g:0 "...\"flunking the class\"-class rhetoric..."
+ 
+ ##News Events
+ ne_news.1.t:0 "Austria-Hungary moves Capital to Vienna"
+ ne_news.1.d:0 "The newly reformed Austro-Hungarian Empire has just recently shown their dedication to restoring the Habsburg realm in the middle of Europe, moving their administration to the old capital of the Empire. While this may be an unpopular and costly measure to some of their subjects not entirely impressed by modern monarchism, supporters have hailed it as an important step towards restoring the old order."
+ ne_news.1.a:0 "One step further towards restoring our glorious past!"
+ ne_news.1.b:0 "Good for them, monarchism may yet make a comeback apparently."
+ ne_news.1.c:0 "It won't save them."
+ 
+ 
+ 
+ ####--Opinion Modifiers--####
+ HUN_joint_balkan_cooperation:0 "Balkan Cooperation Pact"
+ HUN_joint_balkan_dominance:0 "Mutual assistance towards Balkan Dominance"
+ HUN_friend_of_old:0 "Rekindling of Old Friendship"
+ HUN_fellow_monarchists:0 "Fellow Monarchists"
+ HUN_legacy_of_diversity:0 "Fellow Legacy of Diversity"
+ 
+ 
+ 
+ ####--Tech bonuses--####
+ NE_field_medicine_bonus:0 "Field Medicine bonus"
+ 
+ 
+ 
+ ####--Decisions--####
+ ##Decision categories
+ NE_traditionalism_on_the_rise:0 "Traditionalism on the Rise"
+ NE_traditionalism_on_the_rise_desc:0 "Vocal political elements have begun to speak up in favor of our traditional values, now finding support with an ever increasing number of the population. Our country's path to safe and sound values is merely awaiting the choice of a transition, whether it be peaceful or otherwise."
+ NE_HUN_restoration_of_A-H:0 "Restoration of Austria-Hungary"
+ NE_HUN_restoration_of_A-H_desc:0 "While the restoration of Austria-Hungary has been put in motion now, there could be many details to work out before the Dual Monarchy can become what it once was."
+ NE_ICE_land_reintegration:0 "Icelandic Land Reintegration"
+ NE_ICE_land_reintegration_desc:0 "Iceland was originally an independent Norwegian colony, mostly made up of malcontents and free spirits who did not agree to Harald Fairhair's rule as he united Norway. In addition to Iceland, Norwegians from different walks of life also settled parts of Ireland, the Hebrides, Orkney and Shetland, and most relevantly the Faroes and Greenland.\n\nYet, of all of these former Norwegian \"colonies\", Iceland was perhaps the largest and most prominent one, and unlike the colonies in Ireland, retained its old culture. With Iceland now independent like it was in the start, and Norway no longer holding much sway over all these islands, maybe it's time for the most prominent of these colonies to take charge? After all, of the two countries of Iceland and Norway, which one kept their original language? And which one put their joint history on paper?"
+ NE_NOR_land_reintegration:0 "Norwegian Land Reintegration"
+ NE_NOR_land_reintegration_desc:0 "During the early and high middle ages the Kingdom of Norway was developed, formed tight knit communities, united, grew and prospered, leaving its definite mark on Northwestern Europe, and indirectly even on more far reaching lands.\n\nHowever, this Norway at its zenith would soon face regression through the Black Death taking out most of the Nobility, and subsequently falling under union with Denmark due to one crafty Danish Queen. As this union went on, circumstances, wars and treaties led to the loss of many Norwegian territories. Still, the inhabitants remember their Norwegian legacy, and this might be utilized should they ever return..."
+ NE_DEN_land_reintegration:0 "Danish Land Reintegration"
+ NE_DEN_land_reintegration_desc:0 "Denmark has found itself in a precarious posistion ever since the middle ages, with easily invaded lowlands and enemies their match or even stronger at their doorstep, with Sweden and the Holy Roman Empire respectively. Indeed, the Kingdom of Sweden, after suffering many a defeat to the Danes, turned things around as Denmark grew complacent as the Baltic powerhouse, while maybe becoming one of the most inventive and innovative countries of the 1600s. With the loss of Halland, Skåne and Blekinge in the mid 1600s, Denmark-Norway mostly had to play defensive in later wars.\n\nTo further complicate things, with the rise of nationalism, Prussia and Austria eventually came for Slesvig-Holsten, an area that had been Danish territory for a long time, but was primarily settled by Germans. Still, Danish legacy exists in both of these former territories, and who is to say they couldn't be Danish once more?"
+ NE_FIN_land_reintegration:0 "Finnish Land Reintegration"
+ NE_FIN_land_reintegration_desc:0 "Indeed the Finnish state got a late start among the National States of Europe. Nevertheless, the Finnish language is alive and well, and the Karelians remain closely related. While attempts have been made to unite the rest of Karelia with Finland, it has not really come to fruition. Yet, the possibility remains."
+ NE_SOV_land_reintegration:0 "Russian Land Reintegration"
+ NE_SOV_land_reintegration_desc:0 "Should we come upon lost territories of the Russian Empire or the Soviet Union again, we should of course strive to reintegrate those rightful territories of ours. Surely, there's no other country that'd take care of them like us."
+ NE_IRE_land_reintegration:0 "Irish Land Reintegration"
+ NE_IRE_land_reintegration_desc:0 "While we are finally independent of the English (and in part, Scottish) yoke that has long sought to rule our home island, even today they hold on to Tuaisceart Éireann, Northern Ireland, in which Scottish gaels made their claim. While most Irishmen are now living freely here or in the Americas, there is still a case to be made to reintegrate the last piece of our homeland should it come back to us, and even the foreigners shall have to conform. After all, it was their predecessors own choice to come here."
+ NE_HOL_land_reintegration:0 "Dutch Land Reintegration"
+ NE_HOL_land_reintegration_desc:0 "While the idea of a Union of the Netherlands and Belgium may have failed in the 1800s, maybe a more limited apporach of reintegrating only the Dutch areas of Belgium would net us more success. While the Flemish may be catholic, they are undeniably related to us, and other countries have shown us that they can unite their people, religious differences aside."
+ NE_BEL_land_reintegration:0 "Belgian Land Reintegration"
+ NE_BEL_land_reintegration_desc:0 "The Belgium of the 1930s is truly a country of many cultures, first and foremost the Flemish and Walloons, but also Luxembourgers, and more recently, some Germans as a result of the Treaty of Versailles. As our country welcomes these people without too much hassle now, the additions of more of these cultures would probably be possible. Maybe all Luxembourgers should indeed be united... within Belgium."
+ NE_LUX_land_reintegration:0 "Luxembourgish Land Reintegration"
+ NE_LUX_land_reintegration_desc:0 "The Grand Duchy of Luxembourg was once much bigger, but due to the three partitions of Luxembourg, which (in order) happened at the hands of France, Prussia and Belgium between 1659 and 1839. There is still an enduring legacy of Luxembourgers in these areas, and this could maybe be used to reintegrate said regions into our country should they once more fall under our rightful rule."
+ NE_FRA_land_reintegration:0 "French Land Reintegration"
+ NE_FRA_land_reintegration_desc:0 "One could argue that Belgium, being split between the French speaking Walloons and the Dutch speaking Flemish, is a construct of the 1800s, meant as a buffer state after Napoleon put fear into the old order of Europe, and the Greater Netherlands idea fell apart shortly thereafter. Indeed, during the short lived yet impactful Napoleonic Empire, Wallonia was an important part of France, one that Napoleon could have added to France had he agreed to the Frankfurt proposals before the tides of war had turned on him entirely."
+ NE_ITA_land_reintegration:0 "Italian Land Reintegration"
+ NE_ITA_land_reintegration_desc:0 "Since even before the Risorgimento the foundation for an expansionist Italian foreign policy lay there. During the unification of Italy, the Austrians were attacked for the integral Italian lands of Lombardia and Veneto. However, German assistance and French non-interference were integral to this, and it came at the cost of giving up Savoia to France.\n\nWhile in the Great War Italy eventually took the French side against what many considered their traditional enemy in Austria-Hungary, Dalmatia and the French holdings of Savoia and Corsica where not included in the gains. Naturally bitterness followed within nationalist circles, and whoever Italy chooses to side with, the possibility to rile up nationalist sentiments for both eastern and western expansion remains very achievable."
+ NE_GER_land_reintegration:0 "German Land Reintegration"
+ NE_GER_land_reintegration_desc:0 "With control over our pre-Versailles territories, we could reintegrate the population there to our rule once again. Propaganda efforts, language classes, and combatting separtists should allow us to have relatively little trouble in the territories of our former Empire. It will, however, require precious administrative resources."
+ NE_AUS_land_reintegration:0 "Austrian Land Reintegration"
+ NE_AUS_land_reintegration_desc:0 "With control over our pre-Versailles territories, we could reintegrate the population there to our rule once again. Propaganda efforts, language classes, and combatting separtists should allow us to have relatively little trouble in the Austrian territories of our former Empire. It will, however, require some administrative resources."
+ NE_HUN_land_reintegration:0 "Hungarian Land Reintegration"
+ NE_HUN_land_reintegration_desc:0 "Royal Hungary both as an independent Kingdom, and later under the Austrian Empire and eventually the Dual Monarchy of Austria-Hungary was ruthlessly split after the Treaty of Versailles. While the Hungarian Kingdom contained just about all of the Carpathian Basin and the Croatian Kingdom, containing upper Croatia around Zagreb, the post Great War situation left even Hungarian majority areas outside of Hungary's control. Should we get the chance, some of this could be rectified quickly with some administrative effort."
+ NE_LIT_land_reintegration:0 "Lithuanian Land Reintegration"
+ NE_LIT_land_reintegration_desc:0 "With control over former core territories of the Grand Duchy of Lithuania, and significant presence of ethnic Lithuanians, it should certainly be possible for us to reintegrate these former territories into our nation once more..."
+ NE_BUL_land_reintegration:0 "Bulgarian Land Reintegration"
+ NE_BUL_land_reintegration_desc:0 "The Balkan Wars and the Great War put large swathes of undeniably Bulgarian land in the hands of our neighbors. If we could get our hands on these territories, we should be able to make the population see the light of a Greater Bulgaria sooner rather than later."
+ NE_MAC_land_reintegration:0 "Macedonian Land Reintegration"
+ NE_MAC_land_reintegration_desc:0 "The Balkan Wars and the Great War put large swathes of undeniably Bulgarian land in the hands their surrounding countries, and as for Macedonia, it passed to Serbian rule. Whether we want to emphasise our historical, cultural and ethnic connections with Bulgaria or not, if we could get our hands on these territories, we should be able to make the population see the light of joining their brethren here in Macedonia sooner rather than later."
+ NE_GRE_land_reintegration:0 "Greek Land Reintegration"
+ NE_GRE_land_reintegration_desc:0 "The Megali idea, wherein most ethnic Greeks are incorporated in one Greater Greece, took a significant hit with the loss against Turkey in the Turkish War for Independence and the following population transfers. Still, western Anatolia and Cyprus still hold some favor towards us, and should be integrated into our country should we ever get the chance."
+ NE_GEO_land_reintegration:0 "Georgian Land Reintegration"
+ NE_GEO_land_reintegration_desc:0 "The Georgian Kingdom for centuries held the Caucasus Mountains, and at times the entire Western part of the mountain range and beyond. Yes, the Georgian people have ruled themselves, but oftentimes they also found themselves ruled by others. Ever since the middle ages and before, Georgians could be found not only in the Caucasus, but also the bordering regions of Anatolia, Azerbaijan and the steppes of the north. The Georgians have thusly contributed to the economy and culture of others for long, yet perhaps it's time they came together for themselves this time?"
+ NE_ETH_land_reintegration:0 "Ethiopian Land Reintegration"
+ NE_ETH_land_reintegration_desc:0 "For much of its existence Ethiopia has had to fight for its survival in the mountains and highlands of the Horn of Africa, threatened by local Sultans and even the might of the Ottoman Empire at times. Indeed, it is no surprise that the Ethiopian territories have come and gone, expanded and retreated, waxed and waned, throughout the country's history. More recently Ethiopia has come to some strength again, and if the Italian threat can once again be seen too, Ethiopia could maybe enjoy access to the sea, through Eritrea."
+ NE_CAN_land_integration:0 "Canadian Land Integration"
+ NE_CAN_land_integration_desc:0 "In the past, what separated Canada from other British colonized areas was only the mindset of loyalty. While the Americans broke away, all too impatient for representation, we remained true to the home continent, home country, and the monarchy therein. Therefore, there shouldn't be that much differentiating a Yukon-based Canadian and an Alaskan-based American, nor a British ruled Newfoundlander and a Canadian from the Maritimes. As such, bordering areas could probably be integrated into the Canadian state, some hurdles and complaints notwithstanding."
+ 
+ ##Traditionalism on the Rise
+ NE_expand_civil_traditionalist_support:0 "Expand Civil Support"
+ NE_expand_civil_traditionalist_support_desc:0 "We must ensure the continuing spread of support for our cause among the people, and encourage them to publically challenge the authority of the present government. As the position of the government is increasingly undermined and civil unrest continues to mount, it will become easier for us to achieve our goals. This holds especially true if, unlike a legal change in government, these goals involves more... proactive means of regime change."
+ NE_open_up_political_discourse_traditionalism:0 "Open Up Political Discourse"
+ NE_open_up_political_discourse_traditionalism_desc:0 "We must open up the acceptance of diverging viewpoints in the government. Perhaps this will eventually make it possible to affect a peaceful change in the politics of our nation."
+ NE_discredit_government_traditionalism:0 "Discredit Government"
+ NE_discredit_government_traditionalism_desc:0 "By pointing out our current government's many flaws we can make people think about the ideological causes of these failures."
+ NE_hold_speech_for_traditional_values:0 "Hold Rally for Traditionalism"
+ NE_hold_speech_for_traditional_values_desc:0 "If we desire change in [Root.GetNameDef], an option could be to arrange a rally for our supporters and the curious, where we inform people of our good cause. Maybe the most important event to convince people of our views would be the speech held by one of our finest rhetoricians. Shall we prepare such a rally?"
+ NE_hold_the_traditionalist_national_referendum:0 "Hold National Referendum"
+ NE_hold_the_traditionalist_national_referendum_desc:0 "With sufficient support, we may now safely hold a referendum to affect a change of government, without bloodshed."
+ 
+ ##Restoration of Austria-Hungary
+ NE_HUN_move_capital_to_vienna:0 "Move the Capital to Vienna"
+ 
+ ##Icelandic land reintegration
+ NE_ICE_reintegrate_faereyjar:0 "Reintegrate Færeyjar"
+ NE_ICE_fully_incorporate_faereyjar:0 "Fully Incorporate Færeyjar"                      ### Currently not used
+ NE_ICE_reintegrate_graenland:0 "Reintegrate Grænland"
+ NE_ICE_fully_incorporate_graenland:0 "Fully Incorporate Grænland"                      ### Currently not used
+ ##Norwegian land reintegration
+ NE_NOR_reintegrate_faeroeyane:0 "Reintegrate Færøyane"
+ NE_NOR_fully_incorporate_faeroeyane:0 "Fully Incorporate Færøyane"                     ### Currently not used
+ NE_NOR_reintegrate_island:0 "Reintegrate Island"
+ NE_NOR_fully_incorporate_island:0 "Fully Incorporate Island"                           ### Currently not used
+ NE_NOR_reintegrate_groenland:0 "Reintegrate Grønland"
+ NE_NOR_fully_incorporate_groenland:0 "Fully Incorporate Grønland"                      ### Currently not used
+ ##Danish land reintegration
+ NE_DEN_reintegrate_skaane:0 "Reintegrate Skåne"
+ NE_DEN_fully_incorporate_skaane:0 "Fully Incorporate Skåne"                            ### Currently not used
+ NE_DEN_reintegrate_slesvig-holsten:0 "Reintegrate Slesvig-Holsten"
+ NE_DEN_fully_incorporate_slesvig-holsten:0 "Fully Incorporate Slesvig-Holsten"         ### Currently not used
+ ##Finnish land reintegration
+ NE_FIN_reintegrate_aeaeninen:0 "Reintegrate Ääninen"
+ NE_FIN_fully_incorporate_aeaeninen:0 "Fully Incorporate Ääninen"
+ NE_FIN_reintegrate_aunus:0 "Reintegrate Aunus"
+ NE_FIN_fully_incorporate_aunus:0 "Fully Incorporate Aunus"
+ ##Russian land reintegration
+ NE_SOV_reintegrate_onega:0 "Reintegrate Onega"
+ NE_SOV_fully_incorporate_onega:0 "Fully Incorporate Onega"
+ NE_SOV_reintegrate_olonets:0 "Reintegrate Olonets"
+ NE_SOV_fully_incorporate_olonets:0 "Fully Incorporate Olonets"
+ ##Irish land reintegration
+ NE_IRE_reintegrate_tuaisceart_eireann:0 "Reintegrate Tuaisceart Éireann"               ### Obviously Northern Ireland
+ NE_IRE_fully_incorporate_tuaisceart_eireann:0 "Fully incorporate Tuaisceart Éireann"
+ ##Dutch land reintegration
+ NE_HOL_reintegrate_vlaanderen:0 "Reintegrate Vlaanderen"
+ ##Belgian land reintegration
+ NE_BEL_reintegrate_calais:0 "Reintegrate Calais"
+ NE_BEL_reintegrate_luxembourg:0 "Reintegrate Luxembourg"
+ ##Luxembourgish land reintegration
+ NE_LUX_reintegrate_wallounien:0 "Reintegrate Wallounien"
+ ##French land reintegration
+ NE_FRA_reintegrate_wallonie:0 "Reintegrate Wallonie"
+ NE_FRA_reintegrate_savoie:0 "Reintegrate Savoie"
+ NE_FRA_fully_incorporate_savoie:0 "Fully Incorporate Savoie"
+ ##Italian land reintegration
+ NE_ITA_reintegrate_savoia:0 "Reintegrate Savoia"
+ NE_ITA_fully_incorporate_savoia:0 "Fully Incorporate Savoia"
+ ##German land reintegration
+ NE_GER_reintegrate_memel:0 "Reintegrate Memel"
+ NE_GER_reintegrate_danzig:0 "Reintegrate Danzig"
+ NE_GER_reintegrate_posen:0 "Reintegrate Posen"
+ NE_GER_fully_incorporate_posen:0 "Fully incorporate Posen"
+ NE_GER_reintegrate_kattowitz:0 "Reintegrate Kattowitz"
+ NE_GER_fully_incorporate_kattowitz:0 "Fully incorporate Kattowitz"
+ ##Austrian land reintegration
+ NE_AUS_reintegrate_sudtirol:0 "Reintegrate Südtirol"
+ NE_AUS_reunite_tirol:0 "Reunite Tirol"
+ NE_AUS_reintegrate_istrien:0 "Reintegrate Istrien"
+ NE_AUS_fully_incorporate_istrien:0 "Fully incorporate Istrien"
+ NE_AUS_reintegrate_krain:0 "Reintegrate Krain"
+ NE_AUS_fully_incorporate_krain:0 "Fully incorporate Krain"
+ NE_AUS_reintegrate_bohemian_hills:0 "Reintegrate the Bohemian Hills"
+ NE_AUS_fully_incorporate_bohemian_hills:0 "Fully incorporate the Bohemian Hills"
+ NE_AUS_reintegrate_bohemia:0 "Reintegrate Bohemia"
+ NE_AUS_fully_incorporate_bohemia:0 "Fully incorporate Bohemia"
+ NE_AUS_reintegrate_moravia:0 "Reintegrate Moravia"
+ NE_AUS_fully_incorporate_moravia:0 "Fully incorporate Moravia"
+ NE_AUS_reintegrate_sudeten_mountains:0 "Reintegrate the Sudeten Mountains"
+ NE_AUS_fully_incorporate_sudeten_mountains:0 "Fully incorporate the Sudeten Mountains"
+ NE_AUS_reintegrate_ostrau:0 "Reintegrate Ostrau"
+ NE_AUS_fully_incorporate_ostrau:0 "Fully incorporate Ostrau"
+ NE_AUS_reintegrate_western_slovakia:0 "Reintegrate Western Slovakia"
+ NE_AUS_fully_incorporate_western_slovakia:0 "Fully incorporate Western Slovakia"
+ ##Hungarian land reintegration
+ NE_HUN_reintegrate_northern_pannonia:0 "Reintegrate Northern Pannonia"
+ NE_HUN_fully_incorporate_northern_pannonia:0 "Fully incorporate Northern Pannonia"
+ NE_HUN_reintegrate_karpatalja:0 "Reintegrate Kárpátalja"
+ NE_HUN_fully_incorporate_karpatalja:0 "Fully incorporate Kárpátalja"
+ NE_HUN_reintegrate_vajdasag:0 "Reintegrate Vajdaság"
+ NE_HUN_fully_incorporate_vajdasag:0 "Fully incorporate Vajdaság"
+ ##Lithuanian land reintegration
+ NE_LIT_reintegrate_klaipeda:0 "Reintegrate Klaipeda"
+ NE_LIT_reintegrate_vilnius:0 "Reintegrate Vilnius"
+ NE_LIT_fully_incorporate_vilnius:0 "Fully incorporate Vilnius"
+ NE_LIT_reintegrate_vileika:0 "Reintegrate Vileika"
+ NE_LIT_fully_incorporate_vileika:0 "Fully incorporate Vileika"
+ NE_LIT_reintegrate_naugarduko:0 "Reintegrate Naugarduko"
+ ##Bulgarian land reintegration
+ NE_BUL_reintegrate_dobrudzha:0 "Reintegrate Dobrudzha"
+ NE_BUL_fully_incorporate_dobrudzha:0 "Fully incorporate Dobrudzha"
+ NE_BUL_reintegrate_trakiya:0 "Reintegrate Trakiya"
+ NE_BUL_fully_incorporate_trakiya:0 "Fully incorporate Trakiya"
+ NE_BUL_reintegrate_solun:0 "Reintegrate Solun"                         ### Thessaloniki/Central Macedonia
+ NE_BUL_fully_incorporate_solun:0 "Fully incorporate Solun"
+ NE_BUL_reintegrate_makedoniya:0 "Reintegrate Makedoniya"
+ NE_BUL_reintegrate_pirot:0 "Reintegrate Pirot"                         ### Pirot town/village with its rural surroundings, and Leskovac.
+ NE_BUL_fully_incorporate_pirot:0 "Fully incorporate Pirot"
+ ##Macedonian land reintegration
+ NE_MAC_rekindle_the_bulgarian_connection:0 "Rekindle the Bulgarian Connection"
+ NE_MAC_reintegrate_solun:0 "Reintegrate Solun"                         ### Thessaloniki/Central Macedonia
+ NE_MAC_fully_incorporate_solun:0 "Fully incorporate Solun"
+ NE_MAC_reintegrate_pirot:0 "Reintegrate Pirot"                         ### Pirot town/village with its rural surroundings, and Leskovac.
+ NE_MAC_fully_incorporate_pirot:0 "Fully incorporate Pirot"
+ ##Greek land reintegration
+ NE_GRE_reintegrate_kypros:0 "Reintegrate Kýpros"                       ### Cyprus
+ NE_GRE_fully_incorporate_kypros:0 "Fully incorporate Kýpros"
+ NE_GRE_reintegrate_smyrna:0 "Reintegrate Smyrna"                       ### Central-western Anatolia
+ NE_GRE_fully_incorporate_smyrna:0 "Fully incorporate Smyrna"
+ ##Georgian land reintegration
+ NE_GEO_reintegrate_tao-klarjeti:0 "Reintegrate Tao-Klarjeti"           ### Easternmost Trabzon/Trebizond
+ NE_GEO_fully_incorporate_tao-klarjeti:0 "Fully incorporate Tao-Klarjeti"
+ NE_GEO_reintegrate_karnu-kalaki:0 "Reintegrate Karnu-Kalaki"           ### (Old) Georgian name for Theodosiopolis/Erzurum
+ NE_GEO_fully_incorporate_karnu-kalaki:0 "Fully incorporate Karnu-Kalaki"
+ ##Ethiopian land reintegration
+ NE_ETH_reintegrate_eritrea:0 "Reintegrate Eritrea"
+ 
+ ##Canadian land integration
+ NE_CAN_integrate_alaska:0 "Integrate Alaska"
+ 
+ ##Bulgarian political actions
+ NE_BUL_anti-yugoslav_propaganda:0 "Anti-Yugoslav Propaganda"
+ NE_BUL_anti-yugoslav_propaganda_desc:0 "The Yugoslav Government threatens our sovereignty. With some effort we can sow an aversion towards joining the Union of Southern Slavs among our populace. While this would take some effort, it could be important for preserving our soverignty, and a united populace is likely to be a stable populace."
+ 
+ 
+ 
+ ####--Flags (country and global)--####
+ NE_preparation_for_traditionalist_civil_war:0 "Preparations for Civil War"
+ NE_opened_up_political_discourse_traditionalism:0 "Opened Political Discourse"

@@ -1,0 +1,4660 @@
+﻿search_filter_prios = {
+	FOCUS_FILTER_POLITICAL = 1010
+
+	
+ 
+	
+	
+	FOCUS_FILTER_RESEARCH = 522
+
+	
+	FOCUS_FILTER_INDUSTRY = 509
+
+}
+
+focus_tree = {
+	id = generic_focus
+	
+	country = {
+		factor = 1
+	}
+	
+	default = yes
+	reset_on_civilwar = no
+
+	initial_show_position = {
+		focus = industrial_effort
+	}
+
+	focus = {
+		id = army_effort
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 0
+		cost = 10
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = equipment_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = army_effort }
+		x = -1
+		y = 1
+		relative_position_id = army_effort
+		cost = 5
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = army_effort }
+		bypass = { has_tech = tech_field_hospital4 }
+		x = 1
+		y = 1
+		relative_position_id = army_effort
+		cost = 5
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 3.0
+				technology = motorised_infantry
+			}
+			add_tech_bonus = {
+				name = NE_field_medicine_bonus
+				bonus = 1.0
+				uses = 1
+				category = hospital_tech
+			}
+		}
+	}
+
+	focus = {
+		id = doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = army_effort }
+		x = 0
+		y = 2
+		relative_position_id = army_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = equipment_effort_2
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = equipment_effort }
+		x = 0
+		y = 2
+		relative_position_id = equipment_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = mechanization_effort
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = motorization_effort }
+		x = 0
+		y = 2
+		relative_position_id = motorization_effort
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = mech_army_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = doctrine_effort_2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = doctrine_effort }
+		x = 0
+		y = 2
+		relative_position_id = doctrine_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = equipment_effort_3
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = equipment_effort_2 }
+		x = 0
+		y = 2
+		relative_position_id = equipment_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = armor_effort
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = mechanization_effort }
+		x = 0
+		y = 2
+		relative_position_id = mechanization_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = special_forces
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = equipment_effort_3 }
+		prerequisite = { focus = doctrine_effort_2 }
+		prerequisite = { focus = armor_effort }
+		x = 1
+		y = 1
+		relative_position_id = equipment_effort_3
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+
+	focus = {
+		id = aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 5
+		y = 0
+		cost = 10
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 75
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 75
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = aviation_effort }
+		mutually_exclusive = { focus = bomber_focus }
+		x = -1
+		y = 1
+		relative_position_id = aviation_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	focus = {
+		id = bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = aviation_effort }
+		mutually_exclusive = { focus = fighter_focus }
+		x = 1
+		y = 1
+		relative_position_id = aviation_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = aviation_effort_2
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = bomber_focus focus = fighter_focus }
+		x = -1
+		y = 1
+		relative_position_id = bomber_focus
+		cost = 10
+
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 75
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 75
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CAS_effort
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = motorization_effort focus = aviation_effort_2 }
+		x = -1
+		y = 1
+		relative_position_id = aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 25
+			air_experience = 25
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = rocket_effort
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = aviation_effort_2 }
+		prerequisite = { focus = infrastructure_effort }
+		x = 0
+		y = 2
+		relative_position_id = aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = NAV_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = aviation_effort_2 focus = flexible_navy }
+		x = 1
+		y = 1
+		relative_position_id = aviation_effort_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 25
+			air_experience = 25
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = naval_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 9
+		y = 0
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 75
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = dockyard
+				level = 4
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 75
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 3
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = dockyard
+						level = 4
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 3
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = dockyard
+						level = 4
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 3
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = dockyard
+						level = 4
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = flexible_navy
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = naval_effort }
+		mutually_exclusive = { focus = large_navy }
+		x = -1
+		y = 1
+		relative_position_id = naval_effort
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 1.0
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	focus = {
+		id = large_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = naval_effort }
+		mutually_exclusive = { focus = flexible_navy }
+		x = 1
+		y = 1
+		relative_position_id = naval_effort
+		cost = 10
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 1.0
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+
+	focus = {
+		id = submarine_effort
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = flexible_navy focus = large_navy }
+		x = 0
+		y = 1
+		relative_position_id = flexible_navy
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = cruiser_effort
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = large_navy focus = flexible_navy }
+		x = 0
+		y = 1
+		relative_position_id = large_navy
+		cost = 10
+		
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	focus = {
+		id = destroyer_effort
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = submarine_effort }
+		x = 0
+		y = 1
+		relative_position_id = submarine_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = capital_ships_effort
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = cruiser_effort }
+		x = 0
+		y = 1
+		relative_position_id = cruiser_effort
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	focus = {
+		id = industrial_effort
+		icon = GFX_goal_generic_production
+		x = 13
+		y = 0
+		cost = 5
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+				OR = { 
+					# we dont want chinese minors to go crazy on slots early since they get eaten
+					tag = GXC 
+					tag = YUN
+					tag = SHX
+					tag = XSM
+					tag = BEL
+					tag = LUX
+					tag = HOL
+					tag = DEN
+
+					# we also dont want tiny nations to go crazy with slots right away
+					num_of_controlled_states < 2
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = construction_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = industrial_effort }
+		x = -1
+		y = 1
+		relative_position_id = industrial_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = no
+
+
+		
+		ai_will_do = {
+			factor = 8
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = production_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = industrial_effort }
+		x = 1
+		y = 1
+		relative_position_id = industrial_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = no
+
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = construction_effort_2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = construction_effort }
+		x = 0
+		y = 1
+		relative_position_id = construction_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = no
+
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = production_effort_2
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = production_effort }
+		x = 0
+		y = 1
+		relative_position_id = production_effort
+		cost = 10
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+
+		available_if_capitulated = no
+
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = infrastructure_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = construction_effort_2 }
+		x = 0
+		y = 1
+		relative_position_id = construction_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 8
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_political_power = 50
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = production_effort_3
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = production_effort_2 }
+		x = 0
+		y = 1
+		relative_position_id = production_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = no
+
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = infrastructure_effort_2
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = infrastructure_effort }
+		x = 0
+		y = 1
+		relative_position_id = infrastructure_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 8
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_political_power = 50
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = construction_effort_3
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = infrastructure_effort }
+		x = 2
+		y = 1
+		relative_position_id = infrastructure_effort
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_INDUSTRY  }
+		
+		available_if_capitulated = no
+
+
+		ai_will_do = {
+			factor = 16
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 2
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = nuclear_effort
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = infrastructure_effort_2 }
+		x = -2
+		y = 1
+		relative_position_id = infrastructure_effort_2
+		cost = 10
+		
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = nuclear
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = extra_tech_slot
+		icon = GFX_focus_research
+		prerequisite = { focus = infrastructure_effort_2 }
+		x = 0
+		y = 1
+		relative_position_id = infrastructure_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = extra_tech_slot_2
+		icon = GFX_focus_research
+		prerequisite = { focus = extra_tech_slot }
+		available = {
+			num_of_factories > 50
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 0
+		y = 1
+		relative_position_id = extra_tech_slot
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}	
+
+	focus = {
+		id = secret_weapons
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = infrastructure_effort_2 }
+		x = 2
+		y = 1
+		relative_position_id = infrastructure_effort_2
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 3
+				category = electronics
+				category = nuclear
+				category = rocketry
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+
+	focus = {
+		id = political_effort
+		icon = GFX_goal_generic_demand_territory
+		x = 20
+		y = 0
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = NE_natural_political_drift
+			add_political_power = 180
+		}
+	}
+
+	focus = {
+		id = collectivist_ethos
+		icon = GFX_goal_generic_national_unity #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = political_effort }
+		mutually_exclusive = { focus = NE_traditionalist_ethos focus = liberty_ethos }
+		x = -2
+		y = 1
+		relative_position_id = political_effort
+		cost = 5
+	
+		search_filters = { FOCUS_FILTER_POLITICAL   }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0.25
+				is_historical_focus_on = yes
+				OR = {
+					has_government = democratic
+					has_idea = neutrality_idea
+				}
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = collectivist_ethos_focus days = 1095 }
+			add_political_power = 60
+		}
+	}
+
+	focus = {
+		id = nationalism_focus
+		icon = GFX_goal_support_fascism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = collectivist_ethos }
+		mutually_exclusive = { focus = internationalism_focus }
+		available = {
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}
+		x = -2
+		y = 1
+		relative_position_id = collectivist_ethos
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 4
+				any_neighbor_country = {
+					is_major = yes
+					has_government = fascism
+				}
+			}
+			modifier = {
+				factor = 0.2
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = fascism }
+				}
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = nationalism
+				days = 720
+			}
+			if = {
+				limit = { original_tag = ICE }
+				337 = { add_core_of = ROOT }
+				101 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NOR }
+				337 = { add_core_of = ROOT }
+				100 = { add_core_of = ROOT }
+				101 = { add_core_of = ROOT }
+				140 = { add_core_of = ROOT }
+				38 = { add_core_of = ROOT }
+				666 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = DEN }
+				138 = { add_core_of = ROOT }
+				124 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SWE }
+				145 = { add_core_of = ROOT }
+				148 = { add_core_of = ROOT }
+				149 = { add_core_of = ROOT }
+				111 = { add_claim_by = ROOT }
+				146 = { add_claim_by = ROOT }
+				150 = { add_claim_by = ROOT }
+				147 = { add_claim_by = ROOT }
+				722 = { add_claim_by = ROOT }
+				143 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = FIN
+					OR = {
+						is_ai = yes
+						EST = { exists = no }
+					}
+				}
+				195 = { add_core_of = ROOT }
+				215 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				213 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = FIN
+					AND = {
+						is_ai = no
+						EST = { exists = yes }
+					}
+				}
+				195 = { add_core_of = ROOT }
+				215 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				213 = { add_claim_by = ROOT }
+				144 = { add_claim_by = ROOT }
+				666 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = EST
+				}
+			}
+			if = {
+				limit = { original_tag = EST }
+				12 = { add_core_of = ROOT }
+				190 = { add_core_of = ROOT }
+				208 = { add_core_of = ROOT }
+				209 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = LAT }
+				13 = { add_core_of = ROOT }
+				191 = { add_core_of = ROOT }
+				209 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = LIT }
+				96 = { add_core_of = ROOT }
+				95 = { add_core_of = ROOT }
+				97 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SWI }
+				159 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CZE }
+				66 = { add_claim_by = ROOT }
+				67 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = AUS }
+				39 = { add_core_of = ROOT }
+				102 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HUN }
+				764 = { add_core_of = ROOT }
+				45 = { add_core_of = ROOT }
+				664 = { add_core_of = ROOT }
+				73 = { add_core_of = ROOT }
+				76 = { add_core_of = ROOT }
+				83 = { add_core_of = ROOT }
+				82 = { add_claim_by = ROOT }
+				103 = { add_claim_by = ROOT }
+				109 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CRO }
+				736 = { add_core_of = ROOT }
+				163 = { add_core_of = ROOT }
+				104 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = SER }
+				104 = { add_core_of = ROOT }
+				105 = { add_core_of = ROOT }
+				106 = { add_core_of = ROOT }
+				44 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = YUG }
+				163 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ALB }
+				802 = { add_core_of = ROOT }
+				105 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = IRE }
+				119 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = BUL }
+				77 = { add_core_of = ROOT }
+				803 = { add_core_of = ROOT }
+				106 = { add_core_of = ROOT }
+				184 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+				341 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = MAC }
+				803 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ROM }
+				73 = { add_claim_by = ROOT }
+				107 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = UKR }
+				137 = { add_core_of = ROOT }
+				218 = { add_core_of = ROOT }
+				240 = { add_core_of = ROOT }
+				260 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HOL }
+				6 = { add_core_of = ROOT }
+				681 = { add_core_of = ROOT }
+				275 = { add_core_of = ROOT }
+				719 = { add_core_of = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BEL
+				}
+			}
+			if = {
+				limit = { original_tag = BEL }
+				35 = { add_core_of = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = LUX
+				}
+			}
+			if = {
+				limit = { original_tag = LUX }
+				34 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = POR
+					OR = {
+						is_ai = yes
+						BRA = { exists = no }
+					}
+				}
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				545 = { add_claim_by = ROOT }
+				422 = { add_claim_by = ROOT }
+				681 = { add_claim_by = ROOT }
+				667 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = POR
+					AND = {
+						is_ai = no
+						BRA = { exists = yes }
+					}
+				}
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				545 = { add_claim_by = ROOT }
+				422 = { add_claim_by = ROOT }
+				681 = { add_claim_by = ROOT }
+				667 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BRA
+				}
+			}
+			if = {
+				limit = {
+					original_tag = SPR
+					is_ai = yes
+				}
+				31 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					tag = D01
+					original_tag = SPR
+					is_ai = yes
+				}
+				31 = { add_core_of = D01 }
+				118 = { add_core_of = D01 }
+				290 = { add_core_of = D01 }
+				461 = { add_claim_by = D01 }
+				462 = { add_claim_by = D01 }
+			}
+			if = {
+				limit = {
+					original_tag = SPR
+					is_ai = no
+				}
+				31 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				290 = { add_core_of = ROOT }
+				638 = { add_core_of = ROOT }
+				686 = { add_core_of = ROOT }
+				315 = { add_claim_by = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = CUB
+				}
+			}
+			if = {
+				limit = { original_tag = GRE }
+				183 = { add_core_of = ROOT }
+				339 = { add_core_of = ROOT }
+				if = {
+					limit = {
+						341 = { is_claimed_by = ROOT }
+					}
+					341 = { remove_claim_by = ROOT }
+				}
+				341 = { add_core_of = ROOT }
+				340 = { add_claim_by = ROOT }
+				347 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = TUR }
+				183 = { add_core_of = ROOT }
+				799 = { add_core_of = ROOT }
+				184 = { add_claim_by = ROOT }
+				291 = { add_claim_by = ROOT }
+				554 = { add_claim_by = ROOT }
+				656 = { add_claim_by = ROOT }
+				675 = { add_claim_by = ROOT }
+				676 = { add_claim_by = ROOT }
+				677 = { add_claim_by = ROOT }
+				680 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ARM }
+				229 = { add_core_of = ROOT }
+				231 = { add_core_of = ROOT }
+				233 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				352 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = GEO }
+				233 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				229 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = AZR }
+				232 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				419 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = IRQ }
+				413 = { add_core_of = ROOT }
+				421 = { add_core_of = ROOT }
+				656 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = PER }
+				229 = { add_core_of = ROOT }
+				676 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+				415 = { add_core_of = ROOT }
+				444 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				231 = { add_claim_by = ROOT }
+				233 = { add_claim_by = ROOT }
+				352 = { add_claim_by = ROOT }
+				584 = { add_claim_by = ROOT }
+				585 = { add_claim_by = ROOT }
+				587 = { add_claim_by = ROOT }
+				656 = { add_claim_by = ROOT }
+				658 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = OMA }
+				658 = { add_core_of = ROOT }
+				659 = { add_core_of = ROOT }
+				410 = { add_claim_by = ROOT }
+				412 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ARG }
+				300 = { add_core_of = ROOT }
+				301 = { add_core_of = ROOT }
+				688 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = URG }
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				301 = { add_core_of = ROOT }
+				688 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = PAR
+					is_ai = yes
+				}
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				300 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = PAR
+					is_ai = no
+				}
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				300 = { add_core_of = ROOT }
+				504 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = BOL }
+				280 = { add_claim_by = ROOT }
+				504 = { add_claim_by = ROOT }
+				506 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ECU }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				307 = { add_core_of = ROOT }
+				488 = { add_core_of = ROOT }
+				489 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = VEN }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				305 = { add_core_of = ROOT }
+				649 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+				687 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = COL }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				307 = { add_core_of = ROOT }
+				488 = { add_core_of = ROOT }
+				489 = { add_core_of = ROOT }
+				305 = { add_core_of = ROOT }
+				649 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = PAN }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				307 = { add_claim_by = ROOT }
+				488 = { add_claim_by = ROOT }
+				489 = { add_claim_by = ROOT }
+				305 = { add_claim_by = ROOT }
+				649 = { add_claim_by = ROOT }
+				490 = { add_claim_by = ROOT }
+				491 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = COS }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NIC }
+				316 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HON }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ELS }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = GUA }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MEX }
+				378 = { add_core_of = ROOT }
+				311 = { add_claim_by = ROOT }
+				313 = { add_claim_by = ROOT }
+				375 = { add_claim_by = ROOT }
+				376 = { add_claim_by = ROOT }
+				377 = { add_claim_by = ROOT }
+				379 = { add_claim_by = ROOT }
+				380 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CAN }
+				463 = { add_core_of = ROOT }
+				386 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = DOM }
+				318 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HAI }
+				319 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MON }
+				714 = { add_core_of = ROOT }
+				761 = { add_core_of = ROOT }
+				715 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MEN }
+				330 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = SHX }
+				608 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				614 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = GXC }
+				595 = { add_core_of = ROOT }
+				602 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+				620 = { add_core_of = ROOT }
+				728 = { add_core_of = ROOT }
+				729 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = YUN }
+				599 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = XSM }
+				287 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = CHI }
+				329 = { add_claim_by = ROOT }
+				330 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = PRC }
+				322 = { add_claim_by = ROOT }
+				441 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = TIB }
+				287 = { add_core_of = ROOT }
+				324 = { add_core_of = ROOT }
+				434 = { add_core_of = ROOT }
+				604 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				441 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = BHU }
+				322 = { add_core_of = ROOT }
+				601 = { add_core_of = ROOT }
+				434 = { add_core_of = ROOT }
+				432 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NEP }
+				439 = { add_core_of = ROOT }
+				438 = { add_claim_by = ROOT }
+				435 = { add_claim_by = ROOT }
+				431 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SIA }
+				670 = { add_core_of = ROOT }
+				741 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ETH }
+				550 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = AST }
+				284 = { add_claim_by = ROOT }
+				723 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = NZL }
+				285 = { add_claim_by = ROOT }
+				518 = { add_claim_by = ROOT }
+				517 = { add_claim_by = ROOT }
+				519 = { add_claim_by = ROOT }
+				522 = { add_claim_by = ROOT }
+				674 = { add_claim_by = ROOT }
+				520 = { add_claim_by = ROOT }
+				521 = { add_claim_by = ROOT }
+				634 = { add_claim_by = ROOT }
+			}
+		}
+	}
+	
+	focus = {
+		id = internationalism_focus
+		icon = GFX_goal_support_communism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = collectivist_ethos }
+		mutually_exclusive = { focus = nationalism_focus }
+		available = {
+			if = {
+				limit = { original_tag = CHI }
+				has_government = communism
+				else = {
+					OR = {
+						has_government = communism
+						has_government = neutrality
+					}
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = collectivist_ethos
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				any_neighbor_country = {
+					is_major = yes
+					has_government = communism
+				}
+			}			
+			modifier = {
+				factor = 0.2
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = communism }
+				}
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				OR = {
+					tag = FIN
+					tag = AUS
+					tag = BUL
+					tag = CHI
+					tag = PER
+				}
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = internationalism
+				days = 720
+			}
+			if = {
+				limit = { original_tag = ICE }
+				337 = { add_core_of = ROOT }
+				101 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NOR }
+				337 = { add_core_of = ROOT }
+				100 = { add_core_of = ROOT }
+				101 = { add_core_of = ROOT }
+				140 = { add_core_of = ROOT }
+				38 = { add_core_of = ROOT }
+				666 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = DEN }
+				138 = { add_core_of = ROOT }
+				124 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SWE }
+				145 = { add_core_of = ROOT }
+				148 = { add_core_of = ROOT }
+				149 = { add_core_of = ROOT }
+				111 = { add_claim_by = ROOT }
+				146 = { add_claim_by = ROOT }
+				150 = { add_claim_by = ROOT }
+				147 = { add_claim_by = ROOT }
+				722 = { add_claim_by = ROOT }
+				143 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = FIN
+					OR = {
+						is_ai = yes
+						EST = { exists = no }
+					}
+				}
+				195 = { add_core_of = ROOT }
+				215 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				213 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = FIN
+					AND = {
+						is_ai = no
+						EST = { exists = yes }
+					}
+				}
+				195 = { add_core_of = ROOT }
+				215 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				213 = { add_claim_by = ROOT }
+				144 = { add_claim_by = ROOT }
+				666 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = EST
+				}
+			}
+			if = {
+				limit = { original_tag = EST }
+				12 = { add_core_of = ROOT }
+				190 = { add_core_of = ROOT }
+				208 = { add_core_of = ROOT }
+				209 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = LAT }
+				13 = { add_core_of = ROOT }
+				191 = { add_core_of = ROOT }
+				209 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = LIT }
+				96 = { add_core_of = ROOT }
+				95 = { add_core_of = ROOT }
+				97 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SWI }
+				159 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CZE }
+				66 = { add_claim_by = ROOT }
+				67 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = AUS }
+				39 = { add_core_of = ROOT }
+				102 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HUN }
+				764 = { add_core_of = ROOT }
+				45 = { add_core_of = ROOT }
+				664 = { add_core_of = ROOT }
+				73 = { add_core_of = ROOT }
+				76 = { add_core_of = ROOT }
+				83 = { add_core_of = ROOT }
+				82 = { add_claim_by = ROOT }
+				103 = { add_claim_by = ROOT }
+				109 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CRO }
+				736 = { add_core_of = ROOT }
+				163 = { add_core_of = ROOT }
+				104 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = SER }
+				104 = { add_core_of = ROOT }
+				105 = { add_core_of = ROOT }
+				106 = { add_core_of = ROOT }
+				44 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = YUG }
+				163 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ALB }
+				802 = { add_core_of = ROOT }
+				105 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = IRE }
+				119 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = BUL }
+				77 = { add_core_of = ROOT }
+				803 = { add_core_of = ROOT }
+				106 = { add_core_of = ROOT }
+				184 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+				341 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = MAC }
+				803 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ROM }
+				73 = { add_claim_by = ROOT }
+				107 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = UKR }
+				137 = { add_core_of = ROOT }
+				218 = { add_core_of = ROOT }
+				240 = { add_core_of = ROOT }
+				260 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HOL }
+				6 = { add_core_of = ROOT }
+				681 = { add_core_of = ROOT }
+				275 = { add_core_of = ROOT }
+				719 = { add_core_of = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BEL
+				}
+			}
+			if = {
+				limit = { original_tag = BEL }
+				35 = { add_core_of = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = LUX
+				}
+			}
+			if = {
+				limit = { original_tag = LUX }
+				34 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = POR
+					OR = {
+						is_ai = yes
+						BRA = { exists = no }
+					}
+				}
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				545 = { add_claim_by = ROOT }
+				422 = { add_claim_by = ROOT }
+				681 = { add_claim_by = ROOT }
+				667 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = POR
+					AND = {
+						is_ai = no
+						BRA = { exists = yes }
+					}
+				}
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				545 = { add_claim_by = ROOT }
+				422 = { add_claim_by = ROOT }
+				681 = { add_claim_by = ROOT }
+				667 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BRA
+				}
+			}
+			if = {
+				limit = {
+					original_tag = SPR
+					is_ai = yes
+				}
+				31 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					tag = D01
+					original_tag = SPR
+					is_ai = yes
+				}
+				31 = { add_core_of = D01 }
+				118 = { add_core_of = D01 }
+				290 = { add_core_of = D01 }
+				461 = { add_claim_by = D01 }
+				462 = { add_claim_by = D01 }
+			}
+			if = {
+				limit = {
+					original_tag = SPR
+					is_ai = no
+				}
+				31 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				290 = { add_core_of = ROOT }
+				638 = { add_core_of = ROOT }
+				686 = { add_core_of = ROOT }
+				315 = { add_claim_by = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = CUB
+				}
+			}
+			if = {
+				limit = { original_tag = GRE }
+				183 = { add_core_of = ROOT }
+				339 = { add_core_of = ROOT }
+				if = {
+					limit = {
+						341 = { is_claimed_by = ROOT }
+					}
+					341 = { remove_claim_by = ROOT }
+				}
+				341 = { add_core_of = ROOT }
+				340 = { add_claim_by = ROOT }
+				347 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = TUR }
+				183 = { add_core_of = ROOT }
+				799 = { add_core_of = ROOT }
+				184 = { add_claim_by = ROOT }
+				291 = { add_claim_by = ROOT }
+				554 = { add_claim_by = ROOT }
+				656 = { add_claim_by = ROOT }
+				675 = { add_claim_by = ROOT }
+				676 = { add_claim_by = ROOT }
+				677 = { add_claim_by = ROOT }
+				680 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ARM }
+				229 = { add_core_of = ROOT }
+				231 = { add_core_of = ROOT }
+				233 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				352 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = GEO }
+				233 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				229 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = AZR }
+				232 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				419 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = IRQ }
+				413 = { add_core_of = ROOT }
+				421 = { add_core_of = ROOT }
+				656 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = PER }
+				229 = { add_core_of = ROOT }
+				676 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+				415 = { add_core_of = ROOT }
+				444 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				231 = { add_claim_by = ROOT }
+				233 = { add_claim_by = ROOT }
+				352 = { add_claim_by = ROOT }
+				584 = { add_claim_by = ROOT }
+				585 = { add_claim_by = ROOT }
+				587 = { add_claim_by = ROOT }
+				656 = { add_claim_by = ROOT }
+				658 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = OMA }
+				658 = { add_core_of = ROOT }
+				659 = { add_core_of = ROOT }
+				410 = { add_claim_by = ROOT }
+				412 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ARG }
+				300 = { add_core_of = ROOT }
+				301 = { add_core_of = ROOT }
+				688 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = URG }
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				301 = { add_core_of = ROOT }
+				688 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = PAR
+					is_ai = yes
+				}
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				300 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = PAR
+					is_ai = no
+				}
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				300 = { add_core_of = ROOT }
+				504 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = BOL }
+				280 = { add_claim_by = ROOT }
+				504 = { add_claim_by = ROOT }
+				506 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ECU }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				307 = { add_core_of = ROOT }
+				488 = { add_core_of = ROOT }
+				489 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = VEN }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				305 = { add_core_of = ROOT }
+				649 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+				687 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = COL }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				307 = { add_core_of = ROOT }
+				488 = { add_core_of = ROOT }
+				489 = { add_core_of = ROOT }
+				305 = { add_core_of = ROOT }
+				649 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = PAN }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				307 = { add_claim_by = ROOT }
+				488 = { add_claim_by = ROOT }
+				489 = { add_claim_by = ROOT }
+				305 = { add_claim_by = ROOT }
+				649 = { add_claim_by = ROOT }
+				490 = { add_claim_by = ROOT }
+				491 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = COS }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NIC }
+				316 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HON }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ELS }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = GUA }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MEX }
+				378 = { add_core_of = ROOT }
+				311 = { add_claim_by = ROOT }
+				313 = { add_claim_by = ROOT }
+				375 = { add_claim_by = ROOT }
+				376 = { add_claim_by = ROOT }
+				377 = { add_claim_by = ROOT }
+				379 = { add_claim_by = ROOT }
+				380 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CAN }
+				463 = { add_core_of = ROOT }
+				386 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = DOM }
+				318 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HAI }
+				319 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MON }
+				714 = { add_core_of = ROOT }
+				761 = { add_core_of = ROOT }
+				715 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MEN }
+				330 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = SHX }
+				608 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				614 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = GXC }
+				595 = { add_core_of = ROOT }
+				602 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+				620 = { add_core_of = ROOT }
+				728 = { add_core_of = ROOT }
+				729 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = YUN }
+				599 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = XSM }
+				287 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = CHI }
+				329 = { add_claim_by = ROOT }
+				330 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = PRC }
+				322 = { add_claim_by = ROOT }
+				441 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = TIB }
+				287 = { add_core_of = ROOT }
+				324 = { add_core_of = ROOT }
+				434 = { add_core_of = ROOT }
+				604 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				441 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = BHU }
+				322 = { add_core_of = ROOT }
+				601 = { add_core_of = ROOT }
+				434 = { add_core_of = ROOT }
+				432 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NEP }
+				439 = { add_core_of = ROOT }
+				438 = { add_claim_by = ROOT }
+				435 = { add_claim_by = ROOT }
+				431 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SIA }
+				670 = { add_core_of = ROOT }
+				741 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ETH }
+				550 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = AST }
+				284 = { add_claim_by = ROOT }
+				723 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = NZL }
+				285 = { add_claim_by = ROOT }
+				518 = { add_claim_by = ROOT }
+				517 = { add_claim_by = ROOT }
+				519 = { add_claim_by = ROOT }
+				522 = { add_claim_by = ROOT }
+				674 = { add_claim_by = ROOT }
+				520 = { add_claim_by = ROOT }
+				521 = { add_claim_by = ROOT }
+				634 = { add_claim_by = ROOT }
+			}
+		}
+	}	
+
+	focus = {
+		id = liberty_ethos
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = political_effort }
+		mutually_exclusive = { focus = collectivist_ethos focus = NE_traditionalist_ethos }
+		available = {
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = political_effort
+		cost = 5
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 40
+			modifier = {
+				factor = 2
+				is_historical_focus_on = yes
+				has_government = democratic
+			}
+			modifier = {
+				factor = 0.1
+				any_neighbor_country = {
+					is_major = yes
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				NOT = {
+					any_neighbor_country = {
+						is_major = yes
+						has_government = democratic
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = liberty_ethos_focus
+			add_timed_idea = {
+				idea = NE_anti-extremist_rhetoric
+				days = 365
+			}
+			add_political_power = 60
+		}
+	}
+
+	focus = {
+		id = militarism
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = nationalism_focus }
+		x = 0
+		y = 1
+		relative_position_id = nationalism_focus
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = neutrality_idea }
+				remove_ideas = neutrality_idea
+			}			
+			add_ideas = militarism_focus
+			army_experience = 20
+			set_rule = { can_send_volunteers = yes }
+		}
+	}
+
+	focus = {
+		id = political_correctness
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = internationalism_focus }
+		x = 0
+		y = 1
+		relative_position_id = internationalism_focus
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = neutrality_idea }
+				remove_ideas = neutrality_idea
+			}		
+			add_political_power = 200
+			add_ideas = idea_political_correctness
+		}
+	}
+
+	focus = {
+		id = neutrality_focus
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = liberty_ethos }
+		mutually_exclusive = { focus = interventionism_focus }
+		x = 0
+		y = 1
+		relative_position_id = liberty_ethos
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				tag = AUS
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_idea = neutrality_idea } }
+				add_ideas = neutrality_idea
+			}
+			add_political_power = 150
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = interventionism_focus
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = liberty_ethos }
+		mutually_exclusive = { focus = neutrality_focus }
+		x = 2
+		y = 1
+		relative_position_id = liberty_ethos
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_idea = neutrality_idea
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = neutrality_idea }
+				remove_ideas = neutrality_idea
+			}	
+			set_rule = { can_send_volunteers = yes }
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = military_youth
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = militarism }
+		x = 0
+		y = 1
+		relative_position_id = militarism
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = military_youth_focus
+			if = {
+				limit = { has_government = fascism }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = deterrence
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = NE_rights_and_responsibilities focus = neutrality_focus }
+		mutually_exclusive = { focus = NE_our_ancestral_lands }
+		x = 0
+		y = 1
+		relative_position_id = neutrality_focus
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = deterrence
+			army_experience = 15
+			navy_experience = 15
+			air_experience = 15
+		}
+	}
+
+	focus = {
+		id = volunteer_corps
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = interventionism_focus }
+		x = 0
+		y = 1
+		relative_position_id = interventionism_focus
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = volunteer_corps_focus
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = paramilitarism
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = military_youth }
+		x = 0
+		y = 1
+		relative_position_id = military_youth
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 25
+			add_ideas = paramilitarism_focus
+		}
+	}
+
+	focus = {
+		id = indoctrination_focus
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = political_correctness focus = NE_our_ancestral_lands }
+		mutually_exclusive = { focus = NE_old_values_in_a_new_world }
+		x = 0
+		y = 1
+		relative_position_id = political_correctness
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = NE_traditionalist_ethos_idea2 }
+				swap_ideas = {
+					remove_idea = NE_traditionalist_ethos_idea2
+					add_idea = NE_traditionalist_ethos_idea_no_chill
+				}
+			}
+			add_ideas = indoctrination_focus
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = foreign_expeditions
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = volunteer_corps }
+		x = 0
+		y = 1
+		relative_position_id = volunteer_corps
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = foreign_expeditions_focus
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = why_we_fight
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = foreign_expeditions focus = deterrence }
+		available = { 
+			OR = { 
+				threat > 0.75 
+				has_defensive_war = yes 
+			}
+		}
+
+		continue_if_invalid = yes
+		
+		x = -2
+		y = 2
+		relative_position_id = foreign_expeditions
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = NE_natural_political_drift
+			add_ideas = why_we_fight_focus
+			custom_effect_tooltip = why_we_fight_effect
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_idea = neutrality_idea } }
+					set_rule = { can_create_factions = yes }
+				}			
+			}
+			if = {
+				limit = { original_tag = LIT
+				}
+				96 = { add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = { original_tag = BUL
+				}
+				77 = { add_core_of = ROOT
+				}
+				106 = { add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = { original_tag = GRE
+				}
+				183 = { add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = { original_tag = PER
+				}
+				229 = { add_core_of = ROOT
+				}
+				444 = { add_core_of = ROOT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = political_commissars
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = indoctrination_focus }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = indoctrination_focus
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = political_commissars_focus
+			if = {
+				limit = { has_government = fascism }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+			add_political_power = 200
+		}
+	}
+
+	focus = {
+		id = ideological_fanaticism
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = paramilitarism focus = political_commissars }
+		x = 2
+		y = 1
+		relative_position_id = paramilitarism
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			set_rule = {
+				can_create_factions = yes
+			}
+			hidden_effect = {
+				set_rule = { can_use_kamikaze_pilots = yes }
+			}
+			custom_effect_tooltip = kamikaze_focus_tooltip
+		}
+	}
+	
+	focus = {
+		id = technology_sharing
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = ideological_fanaticism focus = NE_guard_divisions focus = why_we_fight }
+		available = {
+			OR = {
+				has_war = yes
+				threat > 0.2
+			}
+			is_in_faction = yes
+			OR = {
+				num_of_factories > 50
+				any_other_country = {
+					is_in_faction_with = ROOT
+					num_of_factories > 50
+				}
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = ideological_fanaticism
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 8
+		}
+
+		completion_reward = {
+			add_ideas = NE_wartime_research_and_development
+			if = {
+				limit = {
+					original_research_slots < 3
+				}
+				add_research_slot = 1
+			}
+			if = {
+				limit = {
+					original_research_slots > 2
+				}
+				add_tech_bonus = {
+					name = electronics_bonus
+					bonus = 1.0
+					uses = 1
+					category = electronics
+				}
+				add_tech_bonus = {
+					name = industrial_bonus
+					bonus = 1.0
+					uses = 1
+					category = industry
+				}	
+				add_tech_bonus = {
+					name = infantry_artillery_bonus #@#
+					bonus = 1.0
+					uses = 1
+					category = infantry_weapons
+					category = artillery
+				}				
+			}			
+		}
+	}
+	
+	########################################################
+	#####--"Nationalism Extended" focuses (by Khanor)--#####
+	########################################################
+	focus = {
+		id = NE_modern_aviation
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = rocket_effort }
+		available = {
+			has_tech = rocket_engines
+		}
+		x = 0
+		y = 4
+		relative_position_id = aviation_effort_2
+		cost = 10
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = jet_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = jet_technology
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = NE_synthetic_oil_effort
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = infrastructure_effort }
+		available = {
+			has_tech = synth_oil_experiments
+		}
+		x = -3
+		y = 1
+		relative_position_id = infrastructure_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		
+		ai_will_do = {
+			factor = 16
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 2
+				instant_build = yes
+			}
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 1.0
+				uses = 1
+				category = synth_resources
+			}
+		}		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 1.0
+				uses = 1
+				category = synth_resources
+			}
+		}
+	}
+	focus = {
+		id = NE_advanced_production_methods
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = extra_tech_slot_2 }
+		prerequisite = { focus = NE_synthetic_oil_effort }
+		available = {
+			has_tech = assembly_line_production
+		}
+		x = -3
+		y = 4
+		relative_position_id = infrastructure_effort
+		cost = 15
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_ideas = NE_advanced_production_methods_idea
+		}
+	}
+	
+	focus = {
+		id = NE_advanced_arms_production
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = NE_advanced_production_methods }
+		mutually_exclusive = { focus = NE_advanced_vehicle_production }
+		x = -4
+		y = 5
+		relative_position_id = infrastructure_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = NE_arms_production_idea
+		}
+	}
+	focus = {
+		id = NE_advanced_vehicle_production
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = NE_advanced_production_methods }
+		mutually_exclusive = { focus = NE_advanced_arms_production }
+		x = -2
+		y = 5
+		relative_position_id = infrastructure_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = NE_vehicle_production_idea
+		}
+	}
+	
+	focus = {
+		id = NE_traditionalist_ethos
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = political_effort }
+		mutually_exclusive = { focus = collectivist_ethos focus = liberty_ethos }
+		x = 0
+		y = 1
+		relative_position_id = political_effort
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 5
+				is_historical_focus_on = yes
+				has_government = neutrality
+			}
+			modifier = {
+				factor = 2
+				is_historical_focus_on = no
+				has_government = neutrality
+			}
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = no
+				NOT = { has_government = neutrality }
+			}
+			modifier = {
+				factor = 0.2
+				is_historical_focus_on = yes
+				NOT = { has_government = neutrality }
+			}
+		}
+		
+		completion_reward = {
+			add_ideas = NE_traditionalist_ethos_idea
+			add_political_power = 60
+			
+			custom_effect_tooltip = NE_traditionalist_ethos_tt
+		}
+	}
+		
+	focus = {
+		id = NE_rights_and_responsibilities
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = NE_traditionalist_ethos }
+		x = 0
+		y = 2
+		relative_position_id = political_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+				has_government = neutrality
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NE_traditionalist_ethos_idea
+				add_idea = NE_traditionalist_ethos_idea2
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NE_our_ancestral_lands
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = NE_rights_and_responsibilities }
+		mutually_exclusive = { focus = deterrence }
+		x = 0
+		y = 3
+		relative_position_id = political_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		
+		available_if_capitulated = yes
+		
+		available = {
+			has_government = neutrality
+		}
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+				has_government = neutrality
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { original_tag = ICE }
+				337 = { add_core_of = ROOT }
+				101 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NOR }
+				337 = { add_core_of = ROOT }
+				100 = { add_core_of = ROOT }
+				101 = { add_core_of = ROOT }
+				140 = { add_core_of = ROOT }
+				38 = { add_core_of = ROOT }
+				666 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = DEN }
+				138 = { add_core_of = ROOT }
+				124 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SWE }
+				145 = { add_core_of = ROOT }
+				148 = { add_core_of = ROOT }
+				149 = { add_core_of = ROOT }
+				111 = { add_claim_by = ROOT }
+				146 = { add_claim_by = ROOT }
+				150 = { add_claim_by = ROOT }
+				147 = { add_claim_by = ROOT }
+				722 = { add_claim_by = ROOT }
+				143 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = FIN
+					OR = {
+						is_ai = yes
+						EST = { exists = no }
+					}
+				}
+				195 = { add_core_of = ROOT }
+				215 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				213 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = FIN
+					AND = {
+						is_ai = no
+						EST = { exists = yes }
+					}
+				}
+				195 = { add_core_of = ROOT }
+				215 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				213 = { add_claim_by = ROOT }
+				144 = { add_claim_by = ROOT }
+				666 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = EST
+				}
+			}
+			if = {
+				limit = { original_tag = EST }
+				12 = { add_core_of = ROOT }
+				190 = { add_core_of = ROOT }
+				208 = { add_core_of = ROOT }
+				209 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = LAT }
+				13 = { add_core_of = ROOT }
+				191 = { add_core_of = ROOT }
+				209 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = LIT }
+				96 = { add_core_of = ROOT }
+				95 = { add_core_of = ROOT }
+				97 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SWI }
+				159 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CZE }
+				66 = { add_claim_by = ROOT }
+				67 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = AUS }
+				39 = { add_core_of = ROOT }
+				102 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HUN }
+				764 = { add_core_of = ROOT }
+				45 = { add_core_of = ROOT }
+				664 = { add_core_of = ROOT }
+				73 = { add_core_of = ROOT }
+				76 = { add_core_of = ROOT }
+				83 = { add_core_of = ROOT }
+				82 = { add_claim_by = ROOT }
+				103 = { add_claim_by = ROOT }
+				109 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CRO }
+				736 = { add_core_of = ROOT }
+				163 = { add_core_of = ROOT }
+				104 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = SER }
+				104 = { add_core_of = ROOT }
+				105 = { add_core_of = ROOT }
+				106 = { add_core_of = ROOT }
+				44 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = YUG }
+				163 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ALB }
+				802 = { add_core_of = ROOT }
+				105 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = IRE }
+				119 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = BUL }
+				77 = { add_core_of = ROOT }
+				803 = { add_core_of = ROOT }
+				106 = { add_core_of = ROOT }
+				184 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+				341 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = MAC }
+				803 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ROM }
+				73 = { add_claim_by = ROOT }
+				107 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = UKR }
+				137 = { add_core_of = ROOT }
+				218 = { add_core_of = ROOT }
+				240 = { add_core_of = ROOT }
+				260 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HOL }
+				6 = { add_core_of = ROOT }
+				681 = { add_core_of = ROOT }
+				275 = { add_core_of = ROOT }
+				719 = { add_core_of = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BEL
+				}
+			}
+			if = {
+				limit = { original_tag = BEL }
+				35 = { add_core_of = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = LUX
+				}
+			}
+			if = {
+				limit = { original_tag = LUX }
+				34 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = POR
+					OR = {
+						is_ai = yes
+						BRA = { exists = no }
+					}
+				}
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				545 = { add_claim_by = ROOT }
+				422 = { add_claim_by = ROOT }
+				681 = { add_claim_by = ROOT }
+				667 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = POR
+					AND = {
+						is_ai = no
+						BRA = { exists = yes }
+					}
+				}
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				545 = { add_claim_by = ROOT }
+				422 = { add_claim_by = ROOT }
+				681 = { add_claim_by = ROOT }
+				667 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BRA
+				}
+			}
+			if = {
+				limit = {
+					original_tag = SPR
+					is_ai = yes
+				}
+				31 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				290 = { add_core_of = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = {
+					tag = D01
+					original_tag = SPR
+					is_ai = yes
+				}
+				31 = { add_core_of = D01 }
+				118 = { add_core_of = D01 }
+				290 = { add_core_of = D01 }
+				461 = { add_claim_by = D01 }
+				462 = { add_claim_by = D01 }
+			}
+			if = {
+				limit = {
+					original_tag = SPR
+					is_ai = no
+				}
+				31 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				290 = { add_core_of = ROOT }
+				638 = { add_core_of = ROOT }
+				686 = { add_core_of = ROOT }
+				315 = { add_claim_by = ROOT }
+				461 = { add_claim_by = ROOT }
+				462 = { add_claim_by = ROOT }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = CUB
+				}
+			}
+			if = {
+				limit = { original_tag = GRE }
+				183 = { add_core_of = ROOT }
+				339 = { add_core_of = ROOT }
+				if = {
+					limit = {
+						341 = { is_claimed_by = ROOT }
+					}
+					341 = { remove_claim_by = ROOT }
+				}
+				341 = { add_core_of = ROOT }
+				340 = { add_claim_by = ROOT }
+				347 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = TUR }
+				183 = { add_core_of = ROOT }
+				799 = { add_core_of = ROOT }
+				184 = { add_claim_by = ROOT }
+				291 = { add_claim_by = ROOT }
+				554 = { add_claim_by = ROOT }
+				656 = { add_claim_by = ROOT }
+				675 = { add_claim_by = ROOT }
+				676 = { add_claim_by = ROOT }
+				677 = { add_claim_by = ROOT }
+				680 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ARM }
+				229 = { add_core_of = ROOT }
+				231 = { add_core_of = ROOT }
+				233 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				352 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = GEO }
+				233 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				229 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = AZR }
+				232 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				419 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = IRQ }
+				413 = { add_core_of = ROOT }
+				421 = { add_core_of = ROOT }
+				656 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = PER }
+				229 = { add_core_of = ROOT }
+				676 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+				415 = { add_core_of = ROOT }
+				444 = { add_core_of = ROOT }
+				230 = { add_claim_by = ROOT }
+				231 = { add_claim_by = ROOT }
+				233 = { add_claim_by = ROOT }
+				352 = { add_claim_by = ROOT }
+				584 = { add_claim_by = ROOT }
+				585 = { add_claim_by = ROOT }
+				587 = { add_claim_by = ROOT }
+				656 = { add_claim_by = ROOT }
+				658 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = OMA }
+				658 = { add_core_of = ROOT }
+				659 = { add_core_of = ROOT }
+				410 = { add_claim_by = ROOT }
+				412 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ARG }
+				300 = { add_core_of = ROOT }
+				301 = { add_core_of = ROOT }
+				688 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = URG }
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				301 = { add_core_of = ROOT }
+				688 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = PAR
+					is_ai = yes
+				}
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				300 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = {
+					original_tag = PAR
+					is_ai = no
+				}
+				278 = { add_core_of = ROOT }
+				508 = { add_core_of = ROOT }
+				509 = { add_core_of = ROOT }
+				510 = { add_core_of = ROOT }
+				511 = { add_core_of = ROOT }
+				512 = { add_core_of = ROOT }
+				300 = { add_core_of = ROOT }
+				504 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = BOL }
+				280 = { add_claim_by = ROOT }
+				504 = { add_claim_by = ROOT }
+				506 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = ECU }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				307 = { add_core_of = ROOT }
+				488 = { add_core_of = ROOT }
+				489 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = VEN }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				305 = { add_core_of = ROOT }
+				649 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+				687 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = COL }
+				304 = { add_core_of = ROOT }
+				685 = { add_core_of = ROOT }
+				307 = { add_core_of = ROOT }
+				488 = { add_core_of = ROOT }
+				489 = { add_core_of = ROOT }
+				305 = { add_core_of = ROOT }
+				649 = { add_core_of = ROOT }
+				490 = { add_core_of = ROOT }
+				491 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = PAN }
+				306 = { add_core_of = ROOT }
+				486 = { add_core_of = ROOT }
+				493 = { add_core_of = ROOT }
+				307 = { add_claim_by = ROOT }
+				488 = { add_claim_by = ROOT }
+				489 = { add_claim_by = ROOT }
+				305 = { add_claim_by = ROOT }
+				649 = { add_claim_by = ROOT }
+				490 = { add_claim_by = ROOT }
+				491 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = COS }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NIC }
+				316 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HON }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ELS }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				313 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = GUA }
+				316 = { add_core_of = ROOT }
+				317 = { add_core_of = ROOT }
+				312 = { add_core_of = ROOT }
+				314 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MEX }
+				378 = { add_core_of = ROOT }
+				311 = { add_claim_by = ROOT }
+				313 = { add_claim_by = ROOT }
+				375 = { add_claim_by = ROOT }
+				376 = { add_claim_by = ROOT }
+				377 = { add_claim_by = ROOT }
+				379 = { add_claim_by = ROOT }
+				380 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = CAN }
+				463 = { add_core_of = ROOT }
+				386 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = DOM }
+				318 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = HAI }
+				319 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MON }
+				714 = { add_core_of = ROOT }
+				761 = { add_core_of = ROOT }
+				715 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = MEN }
+				330 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = SHX }
+				608 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				614 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = GXC }
+				595 = { add_core_of = ROOT }
+				602 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+				620 = { add_core_of = ROOT }
+				728 = { add_core_of = ROOT }
+				729 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = YUN }
+				599 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = XSM }
+				287 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = CHI }
+				329 = { add_claim_by = ROOT }
+				330 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = PRC }
+				322 = { add_claim_by = ROOT }
+				441 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = TIB }
+				287 = { add_core_of = ROOT }
+				324 = { add_core_of = ROOT }
+				434 = { add_core_of = ROOT }
+				604 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				441 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = BHU }
+				322 = { add_core_of = ROOT }
+				601 = { add_core_of = ROOT }
+				434 = { add_core_of = ROOT }
+				432 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = NEP }
+				439 = { add_core_of = ROOT }
+				438 = { add_claim_by = ROOT }
+				435 = { add_claim_by = ROOT }
+				431 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = SIA }
+				670 = { add_core_of = ROOT }
+				741 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = ETH }
+				550 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { original_tag = AST }
+				284 = { add_claim_by = ROOT }
+				723 = { add_claim_by = ROOT }
+			}
+			if = {
+				limit = { original_tag = NZL }
+				285 = { add_claim_by = ROOT }
+				518 = { add_claim_by = ROOT }
+				517 = { add_claim_by = ROOT }
+				519 = { add_claim_by = ROOT }
+				522 = { add_claim_by = ROOT }
+				674 = { add_claim_by = ROOT }
+				520 = { add_claim_by = ROOT }
+				521 = { add_claim_by = ROOT }
+				634 = { add_claim_by = ROOT }
+			}
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = NE_old_values_in_a_new_world
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = NE_our_ancestral_lands }
+		mutually_exclusive = { focus = indoctrination_focus }
+		x = 0
+		y = 4
+		relative_position_id = political_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 15
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+				has_government = neutrality
+			}
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NE_traditionalist_ethos_idea2
+				add_idea = NE_traditionalist_ethos_idea_chill
+			}
+		}
+	}
+	
+	focus = {
+		id = NE_spread_our_values
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = NE_old_values_in_a_new_world }
+		x = 1
+		y = 5
+		relative_position_id = political_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+		
+		available_if_capitulated = yes
+		
+		available = {
+			has_government = neutrality
+		}
+		
+		ai_will_do = {
+			factor = 15
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+				has_government = neutrality
+			}
+		}
+		
+		completion_reward = {
+			add_ideas = { NE_ideological_expeditions }
+		}
+	}
+	
+	focus = {
+		id = NE_guard_divisions
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = NE_old_values_in_a_new_world }
+		x = 0
+		y = 6
+		relative_position_id = political_effort
+		cost = 10
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+		
+		available_if_capitulated = yes
+		
+		available = {
+			NOT = {
+				OR = {
+					has_idea = disarmed_nation
+					has_idea = volunteer_only
+					has_idea = limited_conscription
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 2
+				is_historical_focus_on = yes
+				has_government = neutrality
+			}
+		}
+		
+		completion_reward = {
+			remove_ideas = NE_natural_political_drift
+			add_ideas = NE_national_guard
+		}
+	}
+	
+	focus = {
+		id = NE_military_cooperation
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = ideological_fanaticism focus = NE_guard_divisions focus = why_we_fight }
+		available = {
+			threat > 0.2
+			is_in_faction = yes
+			OR = {
+				land_doctrine_level > 4
+				any_other_country = {
+					is_in_faction_with = ROOT
+					land_doctrine_level > 4
+				}
+			}
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 21
+		y = 7
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 2
+		}
+		
+		completion_reward = {
+			add_ideas = NE_leadership_initiatives
+		}
+	}
+}

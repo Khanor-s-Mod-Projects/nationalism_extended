@@ -1,0 +1,174 @@
+﻿#####################################################
+#####--Nationalism Extended events (by Khanor)--#####
+#####################################################
+
+add_namespace = nationalism_extended
+
+country_event = {
+	id = nationalism_extended.1
+	title = nationalism_extended.1.t
+	desc = nationalism_extended.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	#trigger = {
+	#	neutrality > 0.5
+	#	NOT = { has_government = neutrality }
+	#	NOT = { has_idea = NE_traditionalist_revolutionaries }
+	#	NOT = { has_idea = NE_authoritarian_reign }
+	#	is_puppet = no
+	#	has_civil_war = no
+	#}
+	
+	#mean_time_to_happen = {
+	#	days = 30
+	#}
+	
+	#option = {
+	#	name = nationalism_extended.1.a
+	#	add_political_power = -100
+	#	add_popularity = {
+	#		ideology = fascism
+	#		popularity = -0.10
+	#	}
+	#	add_timed_idea = {
+	#		idea = NE_traditionalist_revolutionaries
+	#		days = 365
+	#	}
+	#}
+	
+	#option = {
+	#	name = nationalism_extended.1.b
+	#	add_timed_idea = {
+	#		idea = NE_traditionalist_revolutionaries
+	#		days = 365
+	#	}
+	#}
+	
+	option = {
+		name = nationalism_extended.1.c
+		set_politics = {
+			ruling_party = neutrality
+		}
+		add_stability = -0.05
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = NE_preparation_for_traditionalist_civil_war
+				}
+				clr_country_flag = NE_preparation_for_traditionalist_civil_war
+			}
+			if = {
+				limit = {
+					has_country_flag = NE_opened_political_discourse_traditionalism
+				}
+				clr_country_flag = NE_opened_political_discourse_traditionalism
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nationalism_extended.3
+	title = nationalism_extended.3.t
+	desc = nationalism_extended.3.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				5 = { set_country_flag = NE_traditionalist_speech_best }
+				10 = { set_country_flag = NE_traditionalist_speech_better }
+				20 = { set_country_flag = NE_traditionalist_speech_good } ### Good Speech
+				30 = { } ### Average speech
+				20 = { set_country_flag = NE_traditionalist_speech_bad } ### Bad Speech
+				10 = { set_country_flag = NE_traditionalist_speech_worse }
+				5 = { set_country_flag = NE_traditionalist_speech_worst }
+			}
+		}
+	}
+	
+	option = {
+		name = nationalism_extended.3.a
+		trigger = { has_country_flag = NE_traditionalist_speech_best }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.08
+		}
+		hidden_effect = { clr_country_flag = NE_traditionalist_speech_best }
+	}
+	
+	option = {
+		name = nationalism_extended.3.b
+		trigger = { has_country_flag = NE_traditionalist_speech_better }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.07
+		}
+		hidden_effect = { clr_country_flag = NE_traditionalist_speech_better }
+	}
+	
+	option = {
+		name = nationalism_extended.3.c
+		trigger = { has_country_flag = NE_traditionalist_speech_good }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.06
+		}
+		hidden_effect = { clr_country_flag = NE_traditionalist_speech_good }
+	}
+	
+	option = {
+		name = nationalism_extended.3.p
+		trigger = {
+			NOT = {
+				OR = {
+					has_country_flag = NE_traditionalist_speech_best
+					has_country_flag = NE_traditionalist_speech_better
+					has_country_flag = NE_traditionalist_speech_good
+					has_country_flag = NE_traditionalist_speech_bad
+					has_country_flag = NE_traditionalist_speech_worse
+					has_country_flag = NE_traditionalist_speech_worst
+				}
+			}
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+	
+	option = {
+		name = nationalism_extended.3.e
+		trigger = { has_country_flag = NE_traditionalist_speech_bad }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.04
+		}
+		hidden_effect = { clr_country_flag = NE_traditionalist_speech_bad }
+	}
+	
+	option = {
+		name = nationalism_extended.3.f
+		trigger = { has_country_flag = NE_traditionalist_speech_worse }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+		hidden_effect = { clr_country_flag = NE_traditionalist_speech_worse }
+	}
+	
+	option = {
+		name = nationalism_extended.3.g
+		trigger = { has_country_flag = NE_traditionalist_speech_worst }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		hidden_effect = { clr_country_flag = NE_traditionalist_speech_worst }
+	}
+}

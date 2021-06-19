@@ -1,0 +1,5553 @@
+########################################################################################################
+######--"Nationalism Extended" decisions, "land reintegration"-category or otherwise (by Khanor)--######
+########################################################################################################
+
+NE_traditionalism_on_the_rise = {
+	##NE_prepare_for_traditionalist_civil_war = {
+	##	
+	##	icon = generic_prepare_civil_war
+	##	
+	##	available = {
+	##		has_civil_war = no
+	##		has_completed_focus = NE_traditionalist_ethos
+	##	}
+	##	
+	##	visible = {
+	##		has_completed_focus = NE_traditionalist_ethos
+	##		NOT = {
+	##			has_government = neutrality
+	##			has_country_flag = NE_preparation_for_traditionalist_civil_war }
+	##		}
+	##	}
+	##	
+	##	fire_only_once = no
+	##	
+	##	cost = 50
+	##
+	##	days_remove = 7
+	##	days_re_enable = 365
+	##	
+	##	complete_effect = {
+	##		set_country_flag = NE_preparation_for_traditionalist_civil_war
+	##	}
+	##	
+	##	ai_will_do = {
+	##		factor = 2
+	##	}
+	##}
+	
+	NE_expand_civil_traditionalist_support = {
+		
+		icon = generic_civil_support
+		
+		visible = {
+			OR = {
+				has_country_flag = NE_preparation_for_traditionalist_civil_war
+				has_country_flag = NE_opened_political_discourse_traditionalism
+			}
+			has_completed_focus = NE_traditionalist_ethos
+			NOT = { has_government = neutrality }
+		}
+		
+		fire_only_once = no
+		
+		cost = 25
+		
+		days_remove = 60
+		days_re_enable = 365
+		
+		modifier = {
+			neutrality_drift = 0.04
+			stability_weekly = -0.01
+ 			political_power_gain = -0.1
+		}
+		
+		ai_will_do = {
+			factor = 4
+		}
+	}
+	
+	NE_open_up_political_discourse_traditionalism = {
+		
+		icon = generic_political_discourse
+		
+		available = {
+			fascism < 0.9
+			democratic < 0.9
+			communism < 0.9
+			neutrality < 0.9
+		}
+		
+		visible = {
+			has_completed_focus = NE_traditionalist_ethos
+			NOT = {
+				has_government = neutrality
+				has_country_flag = NE_opened_political_discourse_traditionalism
+			}
+		}
+		
+		fire_only_once = no
+		
+		cost = 75
+		
+		days_remove = 7
+		days_re_enable = 365
+		
+		complete_effect = {
+			set_country_flag = NE_opened_political_discourse_traditionalism
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				is_subject = no
+				neutrality > 40
+			}
+			modifier = {
+				factor = 0
+				is_subject = yes
+				NOT = { has_government = neutrality }
+			}
+		}
+	}
+	
+	NE_discredit_government_traditionalism = {
+		
+		icon = generic_political_discourse
+		
+		available = {
+			fascism < 0.8
+			democratic < 0.8
+			communism < 0.8
+			neutrality < 0.8
+			has_completed_focus = NE_traditionalist_ethos
+		}
+		
+		visible = {
+			has_completed_focus = NE_traditionalist_ethos
+			has_country_flag = NE_opened_political_discourse_traditionalism
+			NOT = { has_government = neutrality }
+		}
+		
+		fire_only_once = no
+		
+		cost = 50
+		
+		days_remove = 7
+		days_re_enable = 365
+		
+		remove_effect = {
+			add_stability = -0.010
+			if = {
+				limit = {
+					has_government = democratic
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
+	NE_hold_speech_for_traditional_values = {
+		
+		icon = generic_civil_support
+		
+		visible = {
+			has_completed_focus = NE_traditionalist_ethos
+			has_country_flag = NE_opened_political_discourse_traditionalism
+			NOT = { has_government = neutrality }
+		}
+		
+		fire_only_once = no
+		
+		cost = 25
+		
+		days_remove = 7
+		days_re_enable = 180
+		
+		remove_effect = {
+			country_event = { hours = 6 id = nationalism_extended.3 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	NE_hold_the_traditionalist_national_referendum = {
+
+		icon = generic_political_discourse
+
+		available = {
+			neutrality > 0.5
+		}
+
+		visible = {
+			has_completed_focus = NE_traditionalist_ethos
+			OR = {
+				neutrality > 0.6
+				has_country_flag = NE_opened_political_discourse_traditionalism
+			}
+			NOT = { has_government = neutrality }
+		}
+		
+		remove_trigger = {
+			has_government = neutrality
+		}
+		
+		fire_only_once = no
+		
+		cost = 100
+		
+		days_remove = 7
+		days_re_enable = 365
+		
+		complete_effect = {
+			country_event = { id = nationalism_extended.1 }
+		}
+		
+		ai_will_do = {
+			factor = 210
+			modifier = {
+				neutrality > 0.6
+				factor = 10
+			}
+		}
+	}
+}
+
+NE_HUN_restoration_of_A-H = {
+	NE_HUN_move_capital_to_vienna = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = HUN
+		}
+		
+		available = {
+			original_tag = HUN
+			4 = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_fully_controlled_by = ROOT
+			}
+		}
+		
+		visible = {
+			original_tag = HUN
+			has_cosmetic_tag = HUN_EMPIRE
+			4 = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_fully_controlled_by = ROOT
+			}
+			NOT = {
+				4 = { is_capital = yes }
+			}
+		}
+		
+		highlight_states = {
+			state = 4
+		}
+		
+		fire_only_once = no
+		
+		cost = 50
+		days_remove = 35
+		days_re_enable = 365
+		
+		modifier = {
+			stability_weekly = -0.02
+		}
+		
+		remove_effect = {
+			add_political_power = 150
+			set_capital = 4
+			news_event = { id = ne_news.1 days = 7 }
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
+
+NE_ICE_land_reintegration = {
+	NE_ICE_reintegrate_faereyjar = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = ICE
+		}
+		
+		available = {
+			original_tag = ICE
+			controls_state = 337
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 337
+				any_other_country = {
+					owns_state = 337
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 337 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 337
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 337
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_ICE_reintegrate_graenland = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = ICE
+		}
+		
+		available = {
+			original_tag = ICE
+			controls_state = 101
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 101
+				any_other_country = {
+					owns_state = 101
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 101 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 101
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 101
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_NOR_land_reintegration = {
+	NE_NOR_reintegrate_faeroeyane = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = NOR
+		}
+		
+		available = {
+			original_tag = NOR
+			controls_state = 337
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 337
+				any_other_country = {
+					owns_state = 337
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 337 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 337
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 337
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_NOR_reintegrate_island = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = NOR
+		}
+		
+		available = {
+			original_tag = NOR
+			controls_state = 100
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 100
+				any_other_country = {
+					owns_state = 100
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 100 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 100
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 100
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_NOR_reintegrate_groenland = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = NOR
+		}
+		
+		available = {
+			original_tag = NOR
+			controls_state = 101
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 101
+				any_other_country = {
+					owns_state = 101
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 101 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 101
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 101
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_DEN_land_reintegration = {
+	NE_DEN_reintegrate_skaane = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = DEN
+		}
+		
+		available = {
+			original_tag = DEN
+			controls_state = 138
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 138
+				any_other_country = {
+					owns_state = 138
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 138 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 138
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 138
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_DEN_reintegrate_slesvig-holsten = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = DEN
+		}
+		
+		available = {
+			original_tag = DEN
+			controls_state = 58
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 58
+				any_other_country = {
+					owns_state = 58
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 58 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 58
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 58
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+}
+
+NE_FIN_land_reintegration = {
+	NE_FIN_reintegrate_aeaeninen = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = FIN
+		}
+		
+		available = {
+			original_tag = FIN
+			controls_state = 215
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 215
+				any_other_country = {
+					owns_state = 215
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 215 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 215
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 215
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_FIN_fully_incorporate_aeaeninen = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = FIN
+		}
+		
+		available = {
+			original_tag = FIN
+			controls_state = 215
+			owns_state = 215
+			215 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 215
+				any_other_country = {
+					owns_state = 215
+					has_war_with = ROOT
+				}
+			}
+			215 = { is_core_of = ROOT }
+			NOT = {
+				215 = { has_state_flag = NE_FIN_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 215
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			215 = { set_state_name = "Ääninen" }
+			if = {
+				limit = {
+					215 = { is_claimed_by = SOV }
+				}
+				215 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					215 = { is_core_of = SOV }
+				}
+				215 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				215 = { set_state_flag = NE_FIN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_FIN_reintegrate_aunus = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = FIN
+		}
+		
+		available = {
+			original_tag = FIN
+			controls_state = 216
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 216
+				any_other_country = {
+					owns_state = 216
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 216 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 216
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 216
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_FIN_fully_incorporate_aunus = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = FIN
+		}
+		
+		available = {
+			original_tag = FIN
+			controls_state = 216
+			owns_state = 216
+			216 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 216
+				any_other_country = {
+					owns_state = 216
+					has_war_with = ROOT
+				}
+			}
+			216 = { is_core_of = ROOT }
+			NOT = {
+				216 = { has_state_flag = NE_FIN_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 216
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			216 = { set_state_name = "Aunus" }
+			set_province_name = { id = 11159 name = "Petroskoi" }
+			if = {
+				limit = {
+					216 = { is_claimed_by = SOV }
+				}
+				216 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					216 = { is_core_of = SOV }
+				}
+				216 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				216 = { set_state_flag = NE_FIN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_SOV_land_reintegration = {
+	NE_SOV_reintegrate_onega = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = SOV
+		}
+		
+		available = {
+			original_tag = SOV
+			controls_state = 215
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 215
+				any_other_country = {
+					owns_state = 215
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 215 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 215
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 215
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_SOV_fully_incorporate_onega = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = SOV
+		}
+		
+		available = {
+			original_tag = SOV
+			controls_state = 215
+			owns_state = 215
+			215 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 215
+				any_other_country = {
+					owns_state = 215
+					has_war_with = ROOT
+				}
+			}
+			215 = {
+				is_core_of = ROOT
+				has_state_flag = NE_FIN_has_incorporated
+			}
+		}
+		
+		highlight_states = {
+			state = 215
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			215 = { reset_state_name = yes }
+			if = {
+				limit = {
+					215 = { is_claimed_by = FIN }
+				}
+				215 = { remove_claim_by = FIN }
+			}
+			if = {
+				limit = {
+					215 = { is_core_of = FIN }
+				}
+				215 = { remove_core_of = FIN }
+			}
+			hidden_effect = {
+				215 = { clr_state_flag = NE_FIN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_SOV_reintegrate_olonets = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = SOV
+		}
+		
+		available = {
+			original_tag = SOV
+			controls_state = 216
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 216
+				any_other_country = {
+					owns_state = 216
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 216 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 216
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 216
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_SOV_fully_incorporate_olonets = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = SOV
+		}
+		
+		available = {
+			original_tag = SOV
+			controls_state = 216
+			owns_state = 216
+			216 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 216
+				any_other_country = {
+					owns_state = 216
+					has_war_with = ROOT
+				}
+			}
+			216 = {
+				is_core_of = ROOT
+				has_state_flag = NE_FIN_has_incorporated
+			}
+		}
+		
+		highlight_states = {
+			state = 216
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			216 = { reset_state_name = yes }
+			reset_province_name = 11159
+			if = {
+				limit = {
+					216 = { is_claimed_by = FIN }
+				}
+				216 = { remove_claim_by = FIN }
+			}
+			if = {
+				limit = {
+					216 = { is_core_of = FIN }
+				}
+				216 = { remove_core_of = FIN }
+			}
+			hidden_effect = {
+				216 = { clr_state_flag = NE_FIN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_IRE_land_reintegration = {
+	NE_IRE_reintegrate_tuaisceart_eireann = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = IRE
+		}
+		
+		available = {
+			original_tag = IRE
+			controls_state = 119
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 119
+				any_other_country = {
+					owns_state = 119
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 119 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 119
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 119
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_IRE_fully_incorporate_tuaisceart_eireann = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = IRE
+		}
+		
+		available = {
+			original_tag = IRE
+			controls_state = 119
+			owns_state = 119
+			119 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 119
+				any_other_country = {
+					owns_state = 119
+					has_war_with = ROOT
+				}
+			}
+			119 = { is_core_of = ROOT }
+			NOT = {
+				119 = { has_state_flag = NE_IRE_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 119
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			119 = { set_state_name = "Tuaisceart Éireann" }
+			set_province_name = { id = 3379 name = "Béal Feirste" }
+			hidden_effect = {
+				119 = { set_state_flag = NE_IRE_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_HOL_land_reintegration = {
+	NE_HOL_reintegrate_vlaanderen = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = HOL
+		}
+		
+		available = {
+			original_tag = HOL
+			controls_state = 6
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 6
+				any_other_country = {
+					owns_state = 6
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 6 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 6
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 6
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+}
+
+NE_BEL_land_reintegration = {
+	NE_BEL_reintegrate_calais = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = BEL
+		}
+		
+		available = {
+			original_tag = BEL
+			controls_state = 29
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 29
+				any_other_country = {
+					owns_state = 29
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 29 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 29
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 29
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_BEL_reintegrate_luxembourg = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = BEL
+		}
+		
+		available = {
+			original_tag = BEL
+			controls_state = 8
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 8
+				any_other_country = {
+					owns_state = 8
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 8 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 8
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 8
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_LUX_land_reintegration = {
+	NE_LUX_reintegrate_wallounien = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = LUX
+		}
+		
+		available = {
+			original_tag = LUX
+			controls_state = 34
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 34
+				any_other_country = {
+					owns_state = 34
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 34 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 34
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 34
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+}
+
+NE_FRA_land_reintegration = {
+	NE_FRA_reintegrate_wallonie = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = FRA
+		}
+		
+		available = {
+			original_tag = FRA
+			controls_state = 34
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 34
+				any_other_country = {
+					owns_state = 34
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 34 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 34
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 34
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_FRA_reintegrate_savoie = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = FRA
+		}
+		
+		available = {
+			original_tag = FRA
+			controls_state = 735
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 735
+				any_other_country = {
+					owns_state = 735
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 735 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 735
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 735
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_FRA_fully_incorporate_savoie = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = FRA
+		}
+		
+		available = {
+			original_tag = FRA
+			controls_state = 735
+			owns_state = 735
+			735 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 735
+				any_other_country = {
+					owns_state = 735
+					has_war_with = ROOT
+				}
+			}
+			735 = { is_core_of = ROOT }
+			735 = { has_state_flag = NE_ITA_has_incorporated }
+		}
+		
+		highlight_states = {
+			state = 735
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			735 = { set_state_name = "Savoie" }
+			if = {
+				limit = {
+					735 = { is_claimed_by = ITA }
+				}
+				735 = { remove_claim_by = ITA }
+			}
+			if = {
+				limit = {
+					735 = { is_core_of = ITA }
+				}
+				735 = { remove_core_of = ITA }
+			}
+			hidden_effect = {
+				735 = { clr_state_flag = NE_ITA_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_ITA_land_reintegration = {
+	NE_ITA_reintegrate_savoia = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		available = {
+			original_tag = ITA
+			controls_state = 735
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 735
+				any_other_country = {
+					owns_state = 735
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 735 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 735
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 735
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_ITA_fully_incorporate_savoia = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		available = {
+			original_tag = ITA
+			controls_state = 735
+			owns_state = 735
+			735 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 735
+				any_other_country = {
+					owns_state = 735
+					has_war_with = ROOT
+				}
+			}
+			735 = { is_core_of = ROOT }
+			NOT = {
+				735 = { has_state_flag = NE_ITA_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 735
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			735 = { set_state_name = "Savoia" }
+			if = {
+				limit = {
+					735 = { is_claimed_by = FRA }
+				}
+				735 = { remove_claim_by = FRA }
+			}
+			if = {
+				limit = {
+					735 = { is_core_of = FRA }
+				}
+				735 = { remove_core_of = FRA }
+			}
+			hidden_effect = {
+				735 = { set_state_flag = NE_ITA_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_GER_land_reintegration = {
+	NE_GER_reintegrate_memel = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = GER
+		}
+		
+		available = {
+			original_tag = GER
+			controls_state = 188
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 188
+				any_other_country = {
+					owns_state = 188
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 188 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 188
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 188
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GER_reintegrate_danzig = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = GER
+		}
+		
+		available = {
+			original_tag = GER
+			controls_state = 85
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 85
+				any_other_country = {
+					owns_state = 85
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 85 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 85
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 85
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_GER_reintegrate_posen = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = GER
+		}
+		
+		available = {
+			original_tag = GER
+			controls_state = 86
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 86
+				any_other_country = {
+					owns_state = 86
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 86 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 86
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 86
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GER_fully_incorporate_posen = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = GER
+		}
+		
+		available = {
+			original_tag = GER
+			controls_state = 86
+			owns_state = 86
+			86 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 86
+				any_other_country = {
+					owns_state = 86
+					has_war_with = ROOT
+				}
+			}
+			86 = { is_core_of = ROOT }
+			NOT = {
+				86 = { has_state_flag = NE_GER_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 86
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 180
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 60
+			86 = { set_state_name = "Posen" }
+			set_province_name = { id = 6558 name = "Posen" }
+			if = {
+				limit = {
+					86 = { is_claimed_by = SOV }
+				}
+				86 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					86 = { is_core_of = SOV }
+				}
+				86 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				86 = { set_state_flag = NE_GER_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GER_reintegrate_kattowitz = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = GER
+		}
+		
+		available = {
+			original_tag = GER
+			controls_state = 762
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 762
+				any_other_country = {
+					owns_state = 762
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 762 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 762
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 762
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GER_fully_incorporate_kattowitz = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = GER
+		}
+		
+		available = {
+			original_tag = GER
+			controls_state = 762
+			owns_state = 762
+			762 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 762
+				any_other_country = {
+					owns_state = 762
+					has_war_with = ROOT
+				}
+			}
+			762 = { is_core_of = ROOT }
+			NOT = {
+				762 = { has_state_flag = NE_GER_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 762
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			762 = { set_state_name = "Kattowitz" }
+			if = {
+				limit = {
+					762 = { is_claimed_by = SOV }
+				}
+				762 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					762 = { is_core_of = SOV }
+				}
+				762 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				762 = { set_state_flag = NE_GER_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_AUS_land_reintegration = {
+	NE_AUS_reintegrate_sudtirol = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 39
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 39
+				any_other_country = {
+					owns_state = 39
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 39 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 39
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 39
+			if = {
+				limit = {
+					NOT = { original_tag = AUS }
+				}
+				AUS = { add_state_core = 39 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_AUS_reunite_tirol = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 153
+			owns_state = 153
+			153 = { is_core_of = ROOT }
+			controls_state = 39
+			owns_state = 39
+			39 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 39
+				any_other_country = {
+					owns_state = 39
+					has_war_with = ROOT
+				}
+			}
+			39 = { is_core_of = ROOT }
+			NOT = {
+				39 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 39
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 180
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 60
+			153 = { set_state_name = "Tirol" }
+			39 = { set_state_name = "Südtirol-Trient" }
+			set_province_name = { id = 11598 name = "Bozen" }
+			if = {
+				limit = {
+					153 = { is_claimed_by = ITA }
+				}
+				153 = { remove_claim_by = ITA }
+			}
+			if = {
+				limit = {
+					153 = { is_core_of = ITA }
+				}
+				153 = { remove_core_of = ITA }
+			}
+			if = {
+				limit = {
+					39 = { is_claimed_by = ITA }
+				}
+				39 = { remove_claim_by = ITA }
+			}
+			if = {
+				limit = {
+					39 = { is_core_of = ITA }
+				}
+				39 = { remove_core_of = ITA }
+			}
+			hidden_effect = {
+				39 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_istrien = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 736
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 736
+				any_other_country = {
+					owns_state = 736
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 736 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 736
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 736
+			if = {
+				limit = {
+					NOT = { original_tag = AUS }
+				}
+				AUS = { add_state_core = 736 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_AUS_fully_incorporate_istrien = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 736
+			owns_state = 736
+			736 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 736
+				any_other_country = {
+					owns_state = 736
+					has_war_with = ROOT
+				}
+			}
+			736 = { is_core_of = ROOT }
+			NOT = {
+				736 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 736
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 180
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 60
+			736 = { set_state_name = "Istrien" }
+			set_province_name = { id = 6626 name = "Triest" }
+			if = {
+				limit = {
+					736 = { is_claimed_by = YUG }
+				}
+				736 = { remove_claim_by = YUG }
+			}
+			if = {
+				limit = {
+					736 = { is_core_of = YUG }
+				}
+				736 = { remove_core_of = YUG }
+			}
+			if = {
+				limit = {
+					736 = { is_claimed_by = ITA }
+				}
+				736 = { remove_claim_by = ITA }
+			}
+			if = {
+				limit = {
+					736 = { is_core_of = ITA }
+				}
+				736 = { remove_core_of = ITA }
+			}
+			hidden_effect = {
+				736 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_krain = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 102
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 102
+				any_other_country = {
+					owns_state = 102
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 102 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 102
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 102
+			if = {
+				limit = {
+					NOT = { original_tag = AUS }
+				}
+				AUS = { add_state_core = 102 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_fully_incorporate_krain = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 102
+			owns_state = 102
+			102 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 102
+				any_other_country = {
+					owns_state = 102
+					has_war_with = ROOT
+				}
+			}
+			102 = { is_core_of = ROOT }
+			NOT = {
+				102 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 102
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			102 = { set_state_name = "Krain" }
+			set_province_name = { id = 9627 name = "Laibach" }
+			if = {
+				limit = {
+					102 = { is_claimed_by = YUG }
+				}
+				102 = { remove_claim_by = YUG }
+			}
+			if = {
+				limit = {
+					102 = { is_core_of = YUG }
+				}
+				102 = { remove_core_of = YUG }
+			}
+			if = {
+				limit = {
+					102 = { is_claimed_by = ITA }
+				}
+				102 = { remove_claim_by = ITA }
+			}
+			if = {
+				limit = {
+					102 = { is_core_of = ITA }
+				}
+				102 = { remove_core_of = ITA }
+			}
+			if = {
+				limit = {
+					102 = { is_claimed_by = GER }
+				}
+				102 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					102 = { is_core_of = GER }
+				}
+				102 = { remove_core_of = GER }
+			}
+			hidden_effect = {
+				102 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_bohemian_hills = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 69
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 69
+				any_other_country = {
+					owns_state = 69
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 69 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 69
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 69
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_fully_incorporate_bohemian_hills = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 69
+			owns_state = 69
+			69 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 69
+				any_other_country = {
+					owns_state = 69
+					has_war_with = ROOT
+				}
+			}
+			69 = { is_core_of = ROOT }
+			NOT = {
+				69 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 69
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			69 = { set_state_name = "Böhmische Hügel" }
+			set_province_name = { id = 3585 name = "Karlsbad" }
+			set_province_name = { id = 11401 name = "Reichenberg" }
+			if = {
+				limit = {
+					69 = { is_claimed_by = GER }
+				}
+				69 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					69 = { is_core_of = GER }
+				}
+				69 = { remove_core_of = GER }
+			}
+			hidden_effect = {
+				69 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_bohemia = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 9
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 9
+				any_other_country = {
+					owns_state = 9
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 9 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 9
+		}
+		
+		fire_only_once = no
+		
+		cost = 60
+		days_remove = 180
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.04
+			add_war_support = 0.04
+			add_state_core = 9
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_AUS_fully_incorporate_bohemia = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 9
+			owns_state = 9
+			9 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 9
+				any_other_country = {
+					owns_state = 9
+					has_war_with = ROOT
+				}
+			}
+			9 = { is_core_of = ROOT }
+			NOT = {
+				9 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 9
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 180
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 60
+			9 = { set_state_name = "Böhmen" }
+			set_province_name = { id = 6418 name = "Pilsen" }
+			set_province_name = { id = 9569 name = "Tabor" }
+			set_province_name = { id = 11542 name = "Prag" }
+			if = {
+				limit = {
+					9 = { is_claimed_by = GER }
+				}
+				9 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					9 = { is_core_of = GER }
+				}
+				9 = { remove_core_of = GER }
+			}
+			hidden_effect = {
+				9 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_AUS_reintegrate_moravia = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 75
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 75
+				any_other_country = {
+					owns_state = 75
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 75 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 75
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 75
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_fully_incorporate_moravia = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 75
+			owns_state = 75
+			75 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 75
+				any_other_country = {
+					owns_state = 75
+					has_war_with = ROOT
+				}
+			}
+			75 = { is_core_of = ROOT }
+			NOT = {
+				75 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 75
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			75 = { set_state_name = "Mähren" }
+			set_province_name = { id = 3569 name = "Brünn" }
+			set_province_name = { id = 6562 name = "Olmütz" }
+			if = {
+				limit = {
+					75 = { is_claimed_by = GER }
+				}
+				75 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					75 = { is_core_of = GER }
+				}
+				75 = { remove_core_of = GER }
+			}
+			hidden_effect = {
+				75 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_sudeten_mountains = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 74
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 74
+				any_other_country = {
+					owns_state = 74
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 74 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 74
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 74
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_fully_incorporate_sudeten_mountains = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 74
+			owns_state = 74
+			74 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 74
+				any_other_country = {
+					owns_state = 74
+					has_war_with = ROOT
+				}
+			}
+			74 = { is_core_of = ROOT }
+			NOT = {
+				74 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 74
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			74 = { set_state_name = "Sudetengebirge" }
+			set_province_name = { id = 3583 name = "Ostrau" }
+			if = {
+				limit = {
+					74 = { is_claimed_by = GER }
+				}
+				74 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					74 = { is_core_of = GER }
+				}
+				74 = { remove_core_of = GER }
+			}
+			hidden_effect = {
+				74 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_ostrau = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 72
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 72
+				any_other_country = {
+					owns_state = 72
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 72 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 72
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 72
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_fully_incorporate_ostrau = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 72
+			owns_state = 72
+			72 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 72
+				any_other_country = {
+					owns_state = 72
+					has_war_with = ROOT
+				}
+			}
+			72 = { is_core_of = ROOT }
+			NOT = {
+				72 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 72
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 45
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 15
+			72 = { set_state_name = "Ostrau" }
+			if = {
+				limit = {
+					72 = { is_claimed_by = GER }
+				}
+				72 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					72 = { is_core_of = GER }
+				}
+				72 = { remove_core_of = GER }
+			}
+			if = {
+				limit = {
+					72 = { is_claimed_by = POL }
+				}
+				72 = { remove_claim_by = POL }
+			}
+			if = {
+				limit = {
+					72 = { is_core_of = POL }
+				}
+				72 = { remove_core_of = POL }
+			}
+			if = {
+				limit = {
+					72 = { is_claimed_by = SOV }
+				}
+				72 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					72 = { is_core_of = SOV }
+				}
+				72 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				72 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_reintegrate_western_slovakia = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 70
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 70
+				any_other_country = {
+					owns_state = 70
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 70 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 70
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 70
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_AUS_fully_incorporate_western_slovakia = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = HUN
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = AUS
+				AND = {
+					original_tag = HUN
+					has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				}
+			}
+			controls_state = 70
+			owns_state = 70
+			70 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 70
+				any_other_country = {
+					owns_state = 70
+					has_war_with = ROOT
+				}
+			}
+			70 = { is_core_of = ROOT }
+			NOT = {
+				70 = { has_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 70
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			set_province_name = { id = 9692 name = "Pressburg" }
+			set_province_name = { id = 11539 name = "Sillein" }
+			if = {
+				limit = {
+					70 = { is_claimed_by = GER }
+				}
+				70 = { remove_claim_by = GER }
+			}
+			if = {
+				limit = {
+					70 = { is_core_of = GER }
+				}
+				70 = { remove_core_of = GER }
+			}
+			hidden_effect = {
+				70 = { set_state_flag = NE_AUS_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_HUN_land_reintegration = {
+	NE_HUN_reintegrate_northern_pannonia = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = HUN
+				original_tag = AUS
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = HUN
+				AND = {
+					original_tag = AUS
+					has_global_flag = form_austria_hungary_flag
+				}
+			}
+			controls_state = 664
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 664
+				any_other_country = {
+					owns_state = 664
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 664 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 664
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 664
+			if = {
+				limit = {
+					NOT = { original_tag = HUN }
+				}
+				HUN = { add_state_core = 664 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_HUN_fully_incorporate_northern_pannonia = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = HUN
+				original_tag = AUS
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = HUN
+				AND = {
+					original_tag = AUS
+					has_global_flag = form_austria_hungary_flag
+				}
+			}
+			controls_state = 664
+			owns_state = 664
+			664 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 664
+				any_other_country = {
+					owns_state = 664
+					has_war_with = ROOT
+				}
+			}
+			664 = { is_core_of = ROOT }
+			NOT = {
+				664 = { has_state_flag = NE_HUN_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 664
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			664 = { set_state_name = "Northern Pannonia" }
+			set_province_name = { id = 6573 name = "Kassa" }
+			if = {
+				limit = {
+					664 = { is_claimed_by = SOV }
+				}
+				664 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					664 = { is_core_of = SOV }
+				}
+				664 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				664 = { set_state_flag = NE_HUN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_HUN_reintegrate_karpatalja = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = HUN
+				original_tag = AUS
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = HUN
+				AND = {
+					original_tag = AUS
+					has_global_flag = form_austria_hungary_flag
+				}
+			}
+			controls_state = 73
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 73
+				any_other_country = {
+					owns_state = 73
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 73 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 73
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 73
+			if = {
+				limit = {
+					NOT = { original_tag = HUN }
+				}
+				HUN = { add_state_core = 73 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_HUN_fully_incorporate_karpatalja = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = HUN
+				original_tag = AUS
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = HUN
+				AND = {
+					original_tag = AUS
+					has_global_flag = form_austria_hungary_flag
+				}
+			}
+			controls_state = 73
+			owns_state = 73
+			73 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 73
+				any_other_country = {
+					owns_state = 73
+					has_war_with = ROOT
+				}
+			}
+			73 = { is_core_of = ROOT }
+			NOT = {
+				73 = { has_state_flag = NE_HUN_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 73
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			73 = { set_state_name = "Kárpátalja" }
+			set_province_name = { id = 3548 name = "Munkács" }
+			if = {
+				limit = {
+					73 = { is_claimed_by = SOV }
+				}
+				73 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					73 = { is_core_of = SOV }
+				}
+				73 = { remove_core_of = SOV }
+			}
+			if = {
+				limit = {
+					73 = { is_claimed_by = UKR }
+				}
+				73 = { remove_claim_by = UKR }
+			}
+			if = {
+				limit = {
+					73 = { is_core_of = UKR }
+				}
+				73 = { remove_core_of = UKR }
+			}
+			if = {
+				limit = {
+					73 = { is_claimed_by = ROM }
+				}
+				73 = { remove_claim_by = ROM }
+			}
+			if = {
+				limit = {
+					73 = { is_core_of = ROM }
+				}
+				73 = { remove_core_of = ROM }
+			}
+			hidden_effect = {
+				73 = { set_state_flag = NE_HUN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_HUN_reintegrate_vajdasag = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			OR = {
+				original_tag = HUN
+				original_tag = AUS
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = HUN
+				AND = {
+					original_tag = AUS
+					has_global_flag = form_austria_hungary_flag
+				}
+			}
+			controls_state = 45
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 45
+				any_other_country = {
+					owns_state = 45
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 45 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 45
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 45
+			if = {
+				limit = {
+					NOT = { original_tag = HUN }
+				}
+				HUN = { add_state_core = 45 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_HUN_fully_incorporate_vajdasag = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			OR = {
+				original_tag = HUN
+				original_tag = AUS
+			}
+		}
+		
+		available = {
+			OR = {
+				original_tag = HUN
+				AND = {
+					original_tag = AUS
+					has_global_flag = form_austria_hungary_flag
+				}
+			}
+			controls_state = 45
+			owns_state = 45
+			45 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 45
+				any_other_country = {
+					owns_state = 45
+					has_war_with = ROOT
+				}
+			}
+			45 = { is_core_of = ROOT }
+			NOT = {
+				45 = { has_state_flag = NE_HUN_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 45
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			45 = { set_state_name = "Vajdaság" }
+			set_province_name = { id = 619 name = "Újvidék" }
+			if = {
+				limit = {
+					45 = { is_claimed_by = YUG }
+				}
+				45 = { remove_claim_by = YUG }
+			}
+			if = {
+				limit = {
+					45 = { is_core_of = YUG }
+				}
+				45 = { remove_core_of = YUG }
+			}
+			hidden_effect = {
+				45 = { set_state_flag = NE_HUN_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_LIT_land_reintegration = {
+	NE_LIT_reintegrate_klaipeda = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = LIT
+		}
+		
+		available = {
+			original_tag = LIT
+			controls_state = 188
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 188
+				any_other_country = {
+					owns_state = 188
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 188 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 188
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 188
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_LIT_reintegrate_vilnius = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = LIT
+		}
+		
+		available = {
+			original_tag = LIT
+			controls_state = 784
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 784
+				any_other_country = {
+					owns_state = 784
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 784 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 784
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 784
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_LIT_fully_incorporate_vilnius = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = LIT
+		}
+		
+		available = {
+			original_tag = LIT
+			controls_state = 784
+			owns_state = 784
+			784 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 784
+				any_other_country = {
+					owns_state = 784
+					has_war_with = ROOT
+				}
+			}
+			784 = { is_core_of = ROOT }
+			NOT = {
+				784 = { has_state_flag = NE_LIT_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 784
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			784 = { set_state_name = "Vilnius" }
+			set_province_name = { id = 3320 name = "Vilnius" }
+			if = {
+				limit = {
+					784 = { is_claimed_by = SOV }
+				}
+				784 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					784 = { is_core_of = SOV }
+				}
+				784 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				784 = { set_state_flag = NE_LIT_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_LIT_reintegrate_vileika = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = LIT
+		}
+		
+		available = {
+			original_tag = LIT
+			controls_state = 96
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 96
+				any_other_country = {
+					owns_state = 96
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 96 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 96
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 96
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_LIT_fully_incorporate_vileika = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = LIT
+		}
+		
+		available = {
+			original_tag = LIT
+			controls_state = 96
+			owns_state = 96
+			96 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 96
+				any_other_country = {
+					owns_state = 96
+					has_war_with = ROOT
+				}
+			}
+			96 = { is_core_of = ROOT }
+			NOT = {
+				96 = { has_state_flag = NE_LIT_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 96
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			96 = { set_state_name = "Vileika" }
+			set_province_name = { id = 406 name = "Maladečina" }
+			if = {
+				limit = {
+					96 = { is_claimed_by = SOV }
+				}
+				96 = { remove_claim_by = SOV }
+			}
+			if = {
+				limit = {
+					96 = { is_core_of = SOV }
+				}
+				96 = { remove_core_of = SOV }
+			}
+			hidden_effect = {
+				96 = { set_state_flag = NE_LIT_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_LIT_reintegrate_naugarduko = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = LIT
+		}
+		
+		available = {
+			original_tag = LIT
+			controls_state = 95
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 95
+				any_other_country = {
+					owns_state = 95
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 95 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 95
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 95
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_BUL_land_reintegration = {
+	NE_BUL_reintegrate_dobrudzha = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 77
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 77
+				any_other_country = {
+					owns_state = 77
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 77 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 77
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 77
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_BUL_fully_incorporate_dobrudzha = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 77
+			owns_state = 77
+			77 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 77
+				any_other_country = {
+					owns_state = 77
+					has_war_with = ROOT
+				}
+			}
+			77 = { is_core_of = ROOT }
+			NOT = {
+				77 = { has_state_flag = NE_BUL_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 77
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 45
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 15
+			77 = { set_state_name = "Dobrudzha" }
+			if = {
+				limit = {
+					77 = { is_claimed_by = ROM }
+				}
+				77 = { remove_claim_by = ROM }
+			}
+			if = {
+				limit = {
+					77 = { is_core_of = ROM }
+				}
+				77 = { remove_core_of = ROM }
+			}
+			hidden_effect = {
+				77 = { set_state_flag = NE_BUL_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_BUL_reintegrate_trakiya = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 184
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 184
+				any_other_country = {
+					owns_state = 184
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 184 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 184
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 184
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_BUL_fully_incorporate_trakiya = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 184
+			owns_state = 184
+			184 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 184
+				any_other_country = {
+					owns_state = 184
+					has_war_with = ROOT
+				}
+			}
+			184 = { is_core_of = ROOT }
+			NOT = {
+				184 = { has_state_flag = NE_BUL_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 184
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 45
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 15
+			184 = { set_state_name = "Trakiya" }
+			set_province_name = { id = 11905 name = "Dedeagach" }
+			if = {
+				limit = {
+					184 = { is_claimed_by = GRE }
+				}
+				184 = { remove_claim_by = GRE }
+			}
+			if = {
+				limit = {
+					184 = { is_core_of = GRE }
+				}
+				184 = { remove_core_of = GRE }
+			}
+			if = {
+				limit = {
+					184 = { is_claimed_by = TUR }
+				}
+				184 = { remove_claim_by = TUR }
+			}
+			if = {
+				limit = {
+					184 = { is_core_of = TUR }
+				}
+				184 = { remove_core_of = TUR }
+			}
+			hidden_effect = {
+				184 = { set_state_flag = NE_BUL_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_BUL_reintegrate_solun = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 731
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 731
+				any_other_country = {
+					owns_state = 731
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 731 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 731
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 731
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_BUL_fully_incorporate_solun = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 731
+			owns_state = 731
+			731 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 731
+				any_other_country = {
+					owns_state = 731
+					has_war_with = ROOT
+				}
+			}
+			731 = { is_core_of = ROOT }
+			OR = {
+				NOT = {
+					731 = { has_state_flag = NE_BUL_has_incorporated }
+				}
+				NOT = {
+					731 = { has_state_flag = NE_MAC_has_incorporated }
+				}
+			}
+		}
+		
+		highlight_states = {
+			state = 731
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			731 = { set_state_name = "Solun" }
+			set_province_name = { id = 11818 name = "Solun" }
+			if = {
+				limit = {
+					731 = { is_claimed_by = TUR }
+				}
+				731 = { remove_claim_by = TUR }
+			}
+			if = {
+				limit = {
+					731 = { is_core_of = TUR }
+				}
+				731 = { remove_core_of = TUR }
+			}
+			hidden_effect = {
+				731 = { set_state_flag = NE_BUL_has_incorporated }
+				731 = { set_state_flag = NE_MAC_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_BUL_reintegrate_makedoniya = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 106
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 106
+				any_other_country = {
+					owns_state = 106
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 106 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 106
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 106
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_BUL_reintegrate_pirot = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 803
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 803
+				any_other_country = {
+					owns_state = 803
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 803 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 803
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 803
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_BUL_fully_incorporate_pirot = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			controls_state = 803
+			owns_state = 803
+			803 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 803
+				any_other_country = {
+					owns_state = 803
+					has_war_with = ROOT
+				}
+			}
+			803 = { is_core_of = ROOT }
+			NOT = {
+				803 = { has_state_flag = NE_BUL_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 803
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 45
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 15
+			803 = { set_state_name = "Pirot" }
+			if = {
+				limit = {
+					803 = { is_claimed_by = SER }
+				}
+				803 = { remove_claim_by = SER }
+			}
+			if = {
+				limit = {
+					803 = { is_core_of = SER }
+				}
+				803 = { remove_core_of = SER }
+			}
+			hidden_effect = {
+				803 = { set_state_flag = NE_BUL_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_MAC_land_reintegration = {
+	NE_MAC_rekindle_the_bulgarian_connection = {
+		
+		icon = GFX_decision_generic_nationalism
+		
+		allowed = {
+			original_tag = MAC
+		}
+		
+		available = {
+			original_tag = MAC
+			AND = {
+				controls_state = 48
+				controls_state = 801
+				controls_state = 77
+				controls_state = 211
+				controls_state = 212
+				controls_state = 184
+			}
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 48
+				controls_state = 801
+				controls_state = 77
+				controls_state = 211
+				controls_state = 212
+				controls_state = 184
+				any_other_country = {
+					OR = {
+						owns_state = 48
+						owns_state = 801
+						owns_state = 77
+						owns_state = 211
+						owns_state = 212
+						owns_state = 184
+					}
+					has_war_with = ROOT
+				}
+			}
+			NOT = {
+				AND = {
+					48 = { is_core_of = ROOT }
+					801 = { is_core_of = ROOT }
+					77 = { is_core_of = ROOT }
+					211 = { is_core_of = ROOT }
+					212 = { is_core_of = ROOT }
+					184 = { is_core_of = ROOT }
+				}
+			}
+		}
+		
+		highlight_states = {
+			state = 48
+			state = 801
+			state = 77
+			state = 211
+			state = 212
+			state = 184
+		}
+		
+		fire_only_once = no
+		
+		cost = 150
+		days_remove = 450
+		days_re_enable = 1825
+		
+		modifier = {
+			political_power_gain = -0.40
+		}
+		
+		remove_effect = {
+			add_stability = 0.15
+			add_war_support = 0.15
+			add_state_core = 48
+			add_state_core = 801
+			add_state_core = 77
+			add_state_core = 211
+			add_state_core = 212
+			add_state_core = 184
+		}
+		
+		ai_will_do = {
+			factor = 25
+		}
+	}
+	
+	NE_MAC_reintegrate_solun = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = MAC
+		}
+		
+		available = {
+			original_tag = MAC
+			controls_state = 731
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 731
+				any_other_country = {
+					owns_state = 731
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 731 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 731
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 731
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_MAC_fully_incorporate_solun = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = MAC
+		}
+		
+		available = {
+			original_tag = MAC
+			controls_state = 731
+			owns_state = 731
+			731 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 731
+				any_other_country = {
+					owns_state = 731
+					has_war_with = ROOT
+				}
+			}
+			731 = { is_core_of = ROOT }
+			OR = {
+				NOT = {
+					731 = { has_state_flag = NE_BUL_has_incorporated }
+				}
+				NOT = {
+					731 = { has_state_flag = NE_MAC_has_incorporated }
+				}
+			}
+		}
+		
+		highlight_states = {
+			state = 731
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			731 = { set_state_name = "Solun" }
+			set_province_name = { id = 11818 name = "Solun" }
+			if = {
+				limit = {
+					731 = { is_claimed_by = TUR }
+				}
+				731 = { remove_claim_by = TUR }
+			}
+			if = {
+				limit = {
+					731 = { is_core_of = TUR }
+				}
+				731 = { remove_core_of = TUR }
+			}
+			hidden_effect = {
+				731 = { set_state_flag = NE_BUL_has_incorporated }
+				731 = { set_state_flag = NE_MAC_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_MAC_reintegrate_pirot = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = MAC
+		}
+		
+		available = {
+			original_tag = MAC
+			controls_state = 803
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 803
+				any_other_country = {
+					owns_state = 803
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 803 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 803
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 803
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_MAC_fully_incorporate_pirot = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = MAC
+		}
+		
+		available = {
+			original_tag = MAC
+			controls_state = 803
+			owns_state = 803
+			803 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 803
+				any_other_country = {
+					owns_state = 803
+					has_war_with = ROOT
+				}
+			}
+			803 = { is_core_of = ROOT }
+			NOT = {
+				803 = { has_state_flag = NE_MAC_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 803
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 45
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 15
+			803 = { set_state_name = "Pirot" }
+			if = {
+				limit = {
+					803 = { is_claimed_by = SER }
+				}
+				803 = { remove_claim_by = SER }
+			}
+			if = {
+				limit = {
+					803 = { is_core_of = SER }
+				}
+				803 = { remove_core_of = SER }
+			}
+			hidden_effect = {
+				803 = { set_state_flag = NE_MAC_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_GRE_land_reintegration = {
+	NE_GRE_reintegrate_kypros = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			original_tag = GRE
+		}
+		
+		available = {
+			original_tag = GRE
+			controls_state = 183
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 183
+				any_other_country = {
+					owns_state = 183
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 183 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 183
+		}
+		
+		fire_only_once = no
+		
+		cost = 15
+		days_remove = 45
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_state_core = 183
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GRE_fully_incorporate_kypros = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = GRE
+		}
+		
+		available = {
+			original_tag = GRE
+			controls_state = 183
+			owns_state = 183
+			183 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 183
+				any_other_country = {
+					owns_state = 183
+					has_war_with = ROOT
+				}
+			}
+			183 = { is_core_of = ROOT }
+			NOT = {
+				183 = { has_state_flag = NE_GRE_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 183
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 45
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 15
+			183 = { set_state_name = "Kýpros" }
+			if = {
+				limit = {
+					183 = { is_claimed_by = ENG }
+				}
+				183 = { remove_claim_by = ENG }
+			}
+			if = {
+				limit = {
+					183 = { is_core_of = ENG }
+				}
+				183 = { remove_core_of = ENG }
+			}
+			hidden_effect = {
+				183 = { set_state_flag = NE_GRE_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GRE_reintegrate_smyrna = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = GRE
+		}
+		
+		available = {
+			original_tag = GRE
+			controls_state = 339
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 339
+				any_other_country = {
+					owns_state = 339
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 339 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 339
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 339
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_GRE_fully_incorporate_smyrna = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = GRE
+		}
+		
+		available = {
+			original_tag = GRE
+			controls_state = 339
+			owns_state = 339
+			339 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 339
+				any_other_country = {
+					owns_state = 339
+					has_war_with = ROOT
+				}
+			}
+			339 = { is_core_of = ROOT }
+			NOT = {
+				339 = { has_state_flag = NE_GRE_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 339
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			339 = { set_state_name = "Smyrna" }
+			set_province_name = { id = 4112 name = "Smyrna" }
+			hidden_effect = {
+				339 = { set_state_flag = NE_GRE_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_GEO_land_reintegration = {
+	NE_GEO_reintegrate_tao-klarjeti = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = GEO
+		}
+		
+		available = {
+			original_tag = GEO
+			controls_state = 354
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 354
+				any_other_country = {
+					owns_state = 354
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 354 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 354
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 354
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_GEO_fully_incorporate_tao-klarjeti = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = GEO
+		}
+		
+		available = {
+			original_tag = GEO
+			controls_state = 354
+			owns_state = 354
+			354 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 354
+				any_other_country = {
+					owns_state = 354
+					has_war_with = ROOT
+				}
+			}
+			354 = { is_core_of = ROOT }
+			NOT = {
+				354 = { has_state_flag = NE_GEO_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 354
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			354 = { set_state_name = "Tao-Klarjeti" }
+			hidden_effect = {
+				354 = { set_state_flag = NE_GEO_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+	
+	NE_GEO_reintegrate_karnu-kalaki = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = GEO
+		}
+		
+		available = {
+			original_tag = GEO
+			controls_state = 353
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 353
+				any_other_country = {
+					owns_state = 353
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 353 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 353
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 353
+		}
+		
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	
+	NE_GEO_fully_incorporate_karnu-kalaki = {
+		
+		icon = generic_decision
+		
+		allowed = {
+			original_tag = GEO
+		}
+		
+		available = {
+			original_tag = GEO
+			controls_state = 353
+			owns_state = 353
+			353 = { is_core_of = ROOT }
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 353
+				any_other_country = {
+					owns_state = 353
+					has_war_with = ROOT
+				}
+			}
+			353 = { is_core_of = ROOT }
+			NOT = {
+				353 = { has_state_flag = NE_GEO_has_incorporated }
+			}
+		}
+		
+		highlight_states = {
+			state = 353
+		}
+		
+		fire_only_once = no
+		
+		cost = 0
+		days_remove = 90
+		days_re_enable = 270
+		
+		remove_effect = {
+			add_political_power = 30
+			353 = { set_state_name = "Karnu-Kalaki" }
+			set_province_name = { id = 11853 name = "Karnu-Kalaki" }
+			hidden_effect = {
+				353 = { set_state_flag = NE_GEO_has_incorporated }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_ETH_land_reintegration = {
+	NE_ETH_reintegrate_eritrea = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = ETH
+		}
+		
+		available = {
+			original_tag = ETH
+			controls_state = 550
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 550
+				any_other_country = {
+					owns_state = 550
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 550 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 550
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 550
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+NE_CAN_land_integration = {
+	NE_CAN_integrate_alaska = {
+		
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = CAN
+		}
+		
+		available = {
+			original_tag = CAN
+			controls_state = 463
+		}
+		
+		visible = {
+			OR = {
+				controls_state = 463
+				any_other_country = {
+					owns_state = 463
+					has_war_with = ROOT
+				}
+			}
+			NOT = { 463 = { is_core_of = ROOT } }
+		}
+		
+		highlight_states = {
+			state = 463
+		}
+		
+		fire_only_once = no
+		
+		cost = 30
+		days_remove = 90
+		days_re_enable = 270
+		
+		modifier = {
+			political_power_gain = -0.20
+			stability_factor = -0.20
+		}
+		
+		remove_effect = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_state_core = 463
+		}
+		
+		ai_will_do = {
+			factor = 15
+		}
+	}
+}
+
+political_actions = {
+	NE_BUL_anti-yugoslav_propaganda = {
+		
+		icon = generic_nationalism
+		
+		allowed = {
+			original_tag = BUL
+		}
+		
+		available = {
+			original_tag = BUL
+			is_subject = no
+			AND = {
+				48 = {
+					is_owned_by = ROOT
+					is_controlled_by = ROOT
+				}
+				212 = {
+					is_owned_by = ROOT
+					is_controlled_by = ROOT
+				}
+				211 = {
+					is_owned_by = ROOT
+					is_controlled_by = ROOT
+				}
+			}
+			OR = {
+				48 = { is_claimed_by = YUG }
+				212 = { is_claimed_by = YUG }
+				211 = { is_claimed_by = YUG }
+				77 = { is_claimed_by = YUG }
+			}
+			any_other_country = {
+				original_tag = YUG
+				NOT = {
+					OR = {
+						has_war_with = ROOT
+						owns_state = 48
+						owns_state = 212
+						owns_state = 211
+						owns_state = 77
+					}
+				}
+			}
+		}
+		
+		visible = {
+			OR = {
+				48 = { is_owned_by = ROOT }
+				212 = { is_owned_by = ROOT }
+				211 = { is_owned_by = ROOT }
+				77 = { is_owned_by = ROOT }
+			}
+			OR = {
+				48 = { is_claimed_by = YUG }
+				212 = { is_claimed_by = YUG }
+				211 = { is_claimed_by = YUG }
+				77 = { is_claimed_by = YUG }
+			}
+		}
+		
+		highlight_states = {
+			state = 48
+			state = 212
+			state = 211
+			state = 77
+		}
+		
+		fire_only_once = no
+		
+		cost = 50
+		days_remove = 180
+		days_re_enable = 365
+		
+		modifier = {
+			political_power_gain = -0.10
+		}
+		
+		remove_effect = {
+			add_stability = 0.05
+			if = {
+				limit = {
+					48 = { is_claimed_by = YUG }
+				}
+				48 = { remove_claim_by = YUG }
+			}
+			if = {
+				limit = {
+					212 = { is_claimed_by = YUG }
+				}
+				212 = { remove_claim_by = YUG }
+			}
+			if = {
+				limit = {
+					211 = { is_claimed_by = YUG }
+				}
+				211 = { remove_claim_by = YUG }
+			}
+			if = {
+				limit = {
+					77 = { is_claimed_by = YUG }
+				}
+				77 = { remove_claim_by = YUG }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}

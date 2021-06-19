@@ -1,0 +1,373 @@
+ideas = { ### Special ideas for the "Nationalism Extended" mod (made by Khanor)
+	hidden_ideas = {
+		NE_natural_political_drift = { ### "Hidden" idea to prevent unrealistic 100% support for one party/ideology
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+		
+			modifier = {
+				democratic_drift = 0.02
+				neutrality_drift = 0.01
+				fascism_drift = 0.01
+				communism_drift = 0.01
+			}
+		}
+	}
+	
+	country = {
+		NE_anti-extremist_rhetoric = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_democratic_drift_bonus
+			
+			modifier = {
+				democratic_drift = 0.04
+				neutrality_drift = 0.02
+			}
+		}
+		
+		NE_traditionalist_ethos_idea = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_agrarian_reform
+			
+			modifier = {
+				neutrality_drift = 0.01
+				trade_opinion_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				research_speed_factor = -0.05
+			}
+		}
+		
+		NE_traditionalist_ethos_idea2 = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_agrarian_reform
+			
+			modifier = {
+				neutrality_drift = 0.02
+				trade_opinion_factor = 0.20
+				production_factory_efficiency_gain_factor = 0.10
+				production_speed_buildings_factor = 0.10
+				research_speed_factor = -0.05
+			}
+		}
+		
+		NE_traditionalist_ethos_idea_chill = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_agrarian_reform
+			
+			modifier = {
+				neutrality_drift = 0.02
+				trade_opinion_factor = 0.20
+				production_factory_efficiency_gain_factor = 0.10
+				production_speed_buildings_factor = 0.10
+				research_speed_factor = -0.025
+				generate_wargoal_tension = -0.50
+			}
+		}
+		
+		NE_traditionalist_ethos_idea_no_chill = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_agrarian_reform
+			
+			modifier = {
+				neutrality_drift = 0.02
+				trade_opinion_factor = 0.20
+				production_factory_efficiency_gain_factor = 0.10
+				production_speed_buildings_factor = 0.10
+				research_speed_factor = -0.05
+				generate_wargoal_tension = -0.50
+				conscription = 0.02
+			}
+		}
+		
+		NE_ideological_expeditions = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = HUN_secret_rearmament
+			
+			rule = {
+				can_send_volunteers = yes
+			}
+			
+			modifier = {
+				send_volunteers_tension = -0.30
+				send_volunteer_divisions_required = -0.30
+				conscription = 0.02
+			}
+		}
+		
+		NE_national_guard = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_reserve_divisions
+			
+			rule = {
+				can_create_factions = yes
+			}
+			
+			modifier = {
+				army_org_Factor = 0.10
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+				mobilization_speed = 0.10
+				conscription = 0.04
+			}
+		}
+		
+		NE_wartime_research_and_development = {
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_research_bonus
+			
+			modifier = {
+				research_speed_factor = 0.025
+			}
+		}
+		
+		NE_advanced_production_methods_idea = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			picture = generic_goods_red_bonus
+			
+			modifier = {
+				consumer_goods_factor = -0.03
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		
+		NE_arms_production_idea = {
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+								
+			removal_cost = -1
+			
+			picture = generic_production_bonus
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				artillery = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				anti_tank = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		NE_vehicle_production_idea = {
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+								
+			removal_cost = -1
+			
+			picture = FRA_motorized_focus
+			
+			equipment_bonus = {
+				motorized_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				mechanized_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				armor = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		NE_leadership_initiatives = {
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+								
+			removal_cost = -1
+			
+			picture = chi_wargaming_division
+			
+			modifier = {
+				experience_gain_army_unit_factor = 0.20
+				experience_gain_navy_unit_factor = 0.20
+				experience_gain_factor = 0.40
+				political_power_cost = 0.20
+			}
+		}
+		
+		HUN_habsburg_influence = {
+			
+			picture = HUN_hungarian_monarchy_habsburg
+			
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = communism
+					}
+				}
+			}
+			
+			modifier = {
+				neutrality_drift = 0.08
+				fascism_drift = -0.04
+				communism_drift = -0.04
+			}
+		}
+		
+		HUN_austro-hungarian_economic_ties = {
+			
+			picture = generic_foreign_capital
+			
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.02
+				production_speed_infrastructure_factor = 0.10
+				autonomy_gain = -0.10
+			}
+		}
+		
+		HUN_grand_rearmament = {
+			
+			picture = generic_war_preparation
+			
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				industrial_capacity_factory = 0.10
+				conscription = 0.03
+			}
+		}
+	}
+}

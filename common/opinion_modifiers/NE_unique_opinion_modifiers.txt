@@ -1,0 +1,22 @@
+##########################################################
+# OPINION MODIFIERS (for the "Nationalism Extended" mod) #
+##########################################################
+# value
+# min_trust
+# max_trust
+# decay
+# months/years/days = timer
+# trade = yes/no
+
+opinion_modifiers = {
+	### Opinion modifiers unlocked by the Hungarian focus tree
+	HUN_joint_balkan_cooperation = { value = 30 }
+	
+	HUN_joint_balkan_dominance = { trade = yes value = 50 }
+	
+	HUN_friend_of_old = { value = 20 }
+	
+	HUN_fellow_monarchists = { value = 15 }
+	
+	HUN_legacy_of_diversity = { value = 15 }
+}

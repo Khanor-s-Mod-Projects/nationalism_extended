@@ -1,0 +1,309 @@
+#########################################################
+######--Nationalism Extended, decision categories--######
+#########################################################
+
+######################################
+#### For generic focus tree users ####
+######################################
+NE_traditionalism_on_the_rise = {
+	icon = generic_monarchism
+	priority = 60
+	
+	allowed = {
+		always = yes
+	}
+}
+
+
+
+######################################################
+#### Restoration of Austria-Hungary (for Hungary) ####
+######################################################
+NE_HUN_restoration_of_A-H = {
+	icon = generic_monarchism
+	priority = 50
+	
+	allowed = {
+		original_tag = HUN
+	}
+}
+
+
+
+##################################################################################################################################
+##################################################################################################################################
+#####--Land Reintegration Decision Categories (country/tag specific to allow relevant flavor texts adapted to each country)--#####
+##################################################################################################################################
+##################################################################################################################################
+
+#################
+#### Iceland ####
+#################
+NE_ICE_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = ICE
+	}
+}
+
+################
+#### Norway ####
+################
+NE_NOR_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = NOR
+	}
+}
+
+#################
+#### Denmark ####
+#################
+NE_DEN_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = DEN
+	}
+}
+
+#################
+#### Finland ####
+#################
+NE_FIN_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = FIN
+	}
+}
+
+#################################
+#### Russia/the Soviet Union ####
+#################################
+NE_SOV_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = SOV
+	}
+}
+
+#################
+#### Ireland ####
+#################
+NE_IRE_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = IRE
+	}
+}
+
+#########################
+#### The Netherlands ####
+#########################
+NE_HOL_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = HOL
+	}
+}
+
+#################
+#### Belgium ####
+#################
+NE_BEL_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = BEL
+	}
+}
+
+####################
+#### Luxembourg ####
+####################
+NE_LUX_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = LUX
+	}
+}
+
+################
+#### France ####
+################
+NE_FRA_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = FRA
+	}
+}
+
+###############
+#### Italy ####
+###############
+NE_ITA_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = ITA
+	}
+}
+
+#################
+#### Germany ####
+#################
+NE_GER_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = GER
+	}
+}
+
+#################
+#### Austria ####
+#################
+NE_AUS_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		OR = {
+			original_tag = AUS
+			AND = {
+				original_tag = HUN
+				has_cosmetic_tag = HUN_EMPIRE
+			}
+		}
+	}
+}
+
+#################
+#### Hungary ####
+#################
+NE_HUN_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		OR = {
+			original_tag = HUN
+			AND = {
+				original_tag = AUS
+				has_cosmetic_tag = HUN_EMPIRE
+			}
+		}
+	}
+}
+
+###################
+#### Lithuania ####
+###################
+NE_LIT_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = LIT
+	}
+}
+
+##################
+#### Bulgaria ####
+##################
+NE_BUL_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = BUL
+	}
+}
+
+###################################
+#### Macedonia/North Macedonia ####
+###################################
+NE_MAC_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = MAC
+	}
+}
+
+################
+#### Greece ####
+################
+NE_GRE_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = GRE
+	}
+}
+
+#################
+#### Georgia ####
+#################
+NE_GEO_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = GEO
+	}
+}
+
+##################
+#### Ethiopia ####
+##################
+NE_ETH_land_reintegration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = ETH
+	}
+}
+
+
+
+##############################################################################################
+##############################################################################################
+#####--Land Integration (same as above, but for core-able territories NOT held earlier)--#####
+##############################################################################################
+##############################################################################################
+
+################
+#### Canada ####
+################
+NE_CAN_land_integration = {
+	icon = generic_propaganda
+	priority = 20
+	
+	allowed = {
+		original_tag = CAN
+	}
+}

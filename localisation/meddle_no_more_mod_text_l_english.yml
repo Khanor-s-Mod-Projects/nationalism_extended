@@ -1,0 +1,10 @@
+﻿l_english:
+ 
+ ####--Decisions--####
+ ##generic political actions
+ MNM_counteract_german_alignment:0 "Counteract German Political Alignment"
+ MNM_counteract_german_alignment_desc:0 "The Germans wield deep influence on our State through economic ties, diplomacy and various German statesmen spread throughout Europe. While some supporters of their ways do not mind this, others are sceptical. Indeed, this could risk increased political tension within our country, and some even fear that in time, this could lead to us being no more than a German satellite state..."
+ MNM_counteract_foreign_influences:0 "Counteract Foreign Political Influences"
+ MNM_counteract_foreign_influences_desc:0 "Foreign Influences are affecting our politics and public opinions. While this may be possible to live with, and it may even be desirable in some cases, we do have the option of doing something about it. With Government efforts, we could block outside influence before it gets in, while our media feed our people the more \"correct\" narrative."
+ MNM_counteract_us_pressure:0 "Counteract US Political Pressure"
+ MNM_counteract_us_pressure_desc:0 "The Americans have long regarded the American Continents as their backyard, influencing countries towards policies and politics beneficial to themselves. With reasons ranging from keeping further European influence out, making profitable trade deals, blocking attempts at nationalization, or even simply making sure no other power in the Western Hemisphere could challenge US hegemony in said hemisphere, [USA.GetNameDef] holds an indirect, yet firm, grip on the Americas.\n\nNevertheless, with a stable leadership, we could probably manage to shake off said influence, should we so desire."

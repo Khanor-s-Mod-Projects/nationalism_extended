@@ -1,0 +1,46 @@
+﻿##########################################################
+#####--Nationalism Extended News events (by Khanor)--#####
+##########################################################
+
+add_namespace = ne_news
+
+news_event = {
+	id = ne_news.1
+	title = ne_news.1.t
+	desc = ne_news.1.d
+	picture = GFX_news_event_royal_visit
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ne_news.1.a
+		trigger = {
+			has_cosmetic_tag = HUN_EMPIRE
+		}
+	}
+	
+	option = {
+		name = ne_news.1.b
+		trigger = {
+			NOT = {
+				has_cosmetic_tag = HUN_EMPIRE
+				FROM = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = ne_news.1.c
+		trigger = {
+			NOT = {
+				has_cosmetic_tag = HUN_EMPIRE
+			}
+			FROM = {
+				has_war_with = ROOT
+			}
+		}
+	}
+}

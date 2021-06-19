@@ -1,0 +1,431 @@
+######################################################
+######--"Meddle No More" decisions (by Khanor)--######
+######################################################
+
+political_actions = {
+	MNM_counteract_german_alignment = {
+		
+		icon = generic_break_treaty
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {
+			has_stability > 0.50
+			OR = {
+				has_idea = GER_align_hungary_democratic
+				has_idea = GER_align_hungary_unaligned
+				has_idea = GER_align_hungary
+				has_idea = GER_align_romania_democratic
+				has_idea = GER_align_romania_unaligned
+				has_idea = GER_align_romania
+				has_idea = GER_communist_refugees
+			}
+		}
+		
+		visible = {
+			OR = {
+				has_idea = GER_align_hungary_democratic
+				has_idea = GER_align_hungary_unaligned
+				has_idea = GER_align_hungary
+				has_idea = GER_align_romania_democratic
+				has_idea = GER_align_romania_unaligned
+				has_idea = GER_align_romania
+				has_idea = GER_communist_refugees
+			}
+		}
+		
+		fire_only_once = no
+		
+		cost = 200
+		
+		days_remove = 120
+		days_re_enable = 365
+		
+		modifier = {
+			stability_factor = -0.20
+		}
+		
+		remove_effect = {
+			if = {
+				limit = { has_idea = GER_align_hungary_democratic }
+				remove_ideas = GER_align_hungary_democratic
+				add_political_power = -40
+				add_stability = 0.04
+			}
+			if = {
+				limit = { has_idea = GER_align_hungary_unaligned }
+				remove_ideas = GER_align_hungary_unaligned
+				add_political_power = -40
+				add_stability = 0.04
+			}
+			if = {
+				limit = { has_idea = GER_align_hungary }
+				remove_ideas = GER_align_hungary
+				add_political_power = -40
+				add_stability = 0.04
+			}
+			if = {
+				limit = { has_idea = GER_align_romania_democratic }
+				remove_ideas = GER_align_romania_democratic
+				add_political_power = -40
+				add_stability = 0.04
+			}
+			if = {
+				limit = { has_idea = GER_align_romania_unaligned }
+				remove_ideas = GER_align_romania_unaligned
+				add_political_power = -40
+				add_stability = 0.04
+			}
+			if = {
+				limit = { has_idea = GER_align_romania }
+				remove_ideas = GER_align_romania
+				add_political_power = -40
+				add_stability = 0.04
+			}
+			if = {
+				limit = { has_idea = GER_communist_refugees }
+				remove_ideas = GER_communist_refugees
+				add_political_power = -40
+				add_stability = 0.04
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				OR = {
+					AND = {
+						OR = {
+							has_idea = GER_align_hungary_democratic
+							has_idea = GER_align_romania_democratic
+						}
+						NOT = { has_government = democratic }
+					}
+					AND = {
+						OR = {
+							has_idea = GER_align_hungary_unaligned
+							has_idea = GER_align_romania_unaligned
+						}
+						NOT = { has_government = neutrality }
+					}
+					AND = {
+						OR = {
+							has_idea = GER_align_hungary
+							has_idea = GER_align_romania
+						}
+						NOT = { has_government = fascism }
+					}
+					AND = {
+						has_idea = GER_communist_refugees
+						is_subject = yes
+						NOT = { has_government = communism }
+					}
+				}
+			}
+			modifier = {
+				add = 0.2
+				is_subject = yes
+			}
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_completed_focus = FRA_leftist_rhetoric
+				}
+			}
+		}
+	}
+	
+	MNM_counteract_foreign_influences = {
+		
+		icon = generic_break_treaty
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {
+			has_stability > 0.50
+			OR = {
+				has_idea = democratic_influence
+				has_idea = fascist_influence
+				has_idea = communist_influence
+				has_idea = communist_pressure
+			}
+		}
+		
+		visible = {
+			OR = {
+				has_idea = democratic_influence
+				has_idea = fascist_influence
+				has_idea = communist_influence
+				has_idea = communist_pressure
+			}
+		}
+		
+		fire_only_once = no
+		
+		cost = 100
+		
+		days_remove = 120
+		days_re_enable = 365
+		
+		modifier = {
+			stability_factor = -0.10
+		}
+		
+		remove_effect = {
+			if = {
+				limit = { has_idea = democratic_influence }
+				remove_ideas = democratic_influence
+				add_political_power = -20
+				add_stability = 0.02
+			}
+			if = {
+				limit = { has_idea = fascist_influence }
+				remove_ideas = fascist_influence
+				add_political_power = -20
+				add_stability = 0.02
+			}
+			if = {
+				limit = { has_idea = communist_influence }
+				remove_ideas = communist_influence
+				add_political_power = -20
+				add_stability = 0.02
+			}
+			if = {
+				limit = { has_idea = communist_influence }
+				remove_ideas = communist_pressure
+				add_political_power = -20
+				add_stability = 0.02
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				OR = {
+					AND = {
+						OR = {
+							has_idea = democratic_influence
+						}
+						NOT = { has_government = democratic }
+					}
+					AND = {
+						OR = {
+							has_idea = fascist_influence
+						}
+						NOT = { has_government = fascism }
+					}
+					AND = {
+						OR = {
+							has_idea = communist_influence
+							has_idea = communist_pressure
+						}
+						NOT = { has_government = communism }
+					}
+				}
+			}
+			modifier = {
+				add = 0.2
+				is_subject = yes
+			}
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_completed_focus = POL_go_right
+					has_completed_focus = POL_go_left
+					has_completed_focus = POL_liberalism
+					has_completed_focus = CZE_communist_support
+				}
+			}
+		}
+	}
+	
+	MNM_counteract_us_pressure = {
+		
+		icon = generic_break_treaty
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {
+			has_stability > 0.75
+			OR = {
+				has_idea = american_influence_defence_democratic
+				has_idea = american_influence_drift_democratic
+				has_idea = american_protection_defence_democratic
+				has_idea = american_protection_drift_democratic
+				has_idea = american_influence_defence_fascism
+				has_idea = american_influence_drift_fascism
+				has_idea = american_protection_defence_fascism
+				has_idea = american_protection_drift_fascism
+				has_idea = american_influence_defence_communism
+				has_idea = american_influence_drift_communism
+				has_idea = american_protection_defence_communism
+				has_idea = american_protection_drift_communism
+			}
+		}
+		
+		visible = {
+			OR = {
+				has_idea = american_influence_defence_democratic
+				has_idea = american_influence_drift_democratic
+				has_idea = american_protection_defence_democratic
+				has_idea = american_protection_drift_democratic
+				has_idea = american_influence_defence_fascism
+				has_idea = american_influence_drift_fascism
+				has_idea = american_protection_defence_fascism
+				has_idea = american_protection_drift_fascism
+				has_idea = american_influence_defence_communism
+				has_idea = american_influence_drift_communism
+				has_idea = american_protection_defence_communism
+				has_idea = american_protection_drift_communism
+			}
+		}
+		
+		fire_only_once = no
+		
+		cost = 50
+		
+		days_remove = 120
+		days_re_enable = 365
+		
+		modifier = {
+			stability_factor = -0.05
+		}
+		
+		remove_effect = {
+			if = {
+				limit = { has_idea = american_influence_defence_democratic }
+				remove_ideas = american_influence_defence_democratic
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_influence_drift_democratic }
+				remove_ideas = american_influence_drift_democratic
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_protection_defence_democratic }
+				remove_ideas = american_protection_defence_democratic
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_protection_drift_democratic }
+				remove_ideas = american_protection_drift_democratic
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_influence_defence_fascism }
+				remove_ideas = american_influence_defence_fascism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_influence_drift_fascism }
+				remove_ideas = american_influence_drift_fascism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_protection_defence_fascism }
+				remove_ideas = american_protection_defence_fascism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_protection_drift_fascism }
+				remove_ideas = american_protection_drift_fascism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_influence_defence_communism }
+				remove_ideas = american_influence_defence_communism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_influence_drift_communism }
+				remove_ideas = american_influence_drift_communism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_protection_defence_communism }
+				remove_ideas = american_protection_defence_communism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_idea = american_protection_drift_communism }
+				remove_ideas = american_protection_drift_communism
+				add_political_power = -10
+				add_stability = 0.01
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				OR = {
+					AND = {
+						OR = {
+							has_idea = american_influence_defence_democratic
+							has_idea = american_influence_drift_democratic
+							has_idea = american_protection_defence_democratic
+							has_idea = american_protection_drift_democratic
+						}
+						NOT = { has_government = democratic }
+					}
+					AND = {
+						OR = {
+							has_idea = american_influence_defence_fascism
+							has_idea = american_influence_drift_fascism
+							has_idea = american_protection_defence_fascism
+							has_idea = american_protection_drift_fascism
+						}
+						NOT = { has_government = fascism }
+					}
+					AND = {
+						OR = {
+							has_idea = american_influence_defence_communism
+							has_idea = american_influence_drift_communism
+							has_idea = american_protection_defence_communism
+							has_idea = american_protection_drift_communism
+						}
+						NOT = { has_government = communism }
+					}
+				}
+			}
+			modifier = {
+				add = 0.2
+				is_subject = yes
+			}
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
