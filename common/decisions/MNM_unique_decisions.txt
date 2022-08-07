@@ -201,7 +201,7 @@ political_actions = {
 				add_stability = 0.02
 			}
 			if = {
-				limit = { has_idea = communist_influence }
+				limit = { has_idea = communist_pressure }
 				remove_ideas = communist_pressure
 				add_political_power = -20
 				add_stability = 0.02
