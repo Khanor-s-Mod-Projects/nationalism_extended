@@ -95,14 +95,45 @@
  nationalism_extended.1.c:0 "If the people want their traditional values, we'll hold the referendum."
  
  nationalism_extended.3.t:0 "Traditionalist Speech Held"
- nationalism_extended.3.d:0 "Over the last week, we've been eagerly preparing for the traditionalist rally today. One of the main events of the day was the speech held in favor of implementing traditional rule and norms in [Root.GetNameDef]. As the speech drew to a close, it became clear that the performance by our lead orator was truly..."
- nationalism_extended.3.a:0 "...world-class rhetoric!"
- nationalism_extended.3.b:0 "...an amazing speech!"
- nationalism_extended.3.c:0 "...an impressive performance"
- nationalism_extended.3.p:0 "...about what we expected"
- nationalism_extended.3.e:0 "...not his best performance"
- nationalism_extended.3.f:0 "...a disappointing speech..."
- nationalism_extended.3.g:0 "...\"flunking the class\"-class rhetoric..."
+ nationalism_extended.3.d:0 "Over the last week, we've been eagerly preparing for the traditionalist rally today. One of the main events of the day was the speech held in favor of implementing traditional rule and norms in [Root.GetNameDef]. As the speech drew to a close, all we can do is await the public's verdict."
+ nationalism_extended.3.a:0 "How was our rally received, we wonder?"
+ 
+ nationalism_extended.4.t:0 "Amazing speech reception"
+ nationalism_extended.4.d:0 "The public's cheers and jubilations hinted to great things even during the rally. The aftermath with even political opponents having to admit our ideas are sound in pure damage control brought this back. As printed news and radio speak of our talented political figures and convincing arguments. Both the Democratic movement, the anarchists and the new authoritarian poltical movements alike flinched when our moderate and traditional ideals faced them head on yesterday."
+ nationalism_extended.4.a:0 "Well done indeed."
+ nationalism_extended.4.b:0 "Okay."
+ nationalism_extended.4.c:0 "Let's cash in on political goodwill by letting our political opponents off easy."
+ 
+ nationalism_extended.5.t:0 "Great speech reception"
+ nationalism_extended.5.d:0 "The public's smiles and thoughtful expressions hinted to great things several times during the rally. The aftermath has also been good to us, as printed news and radio speak of our great rally and arguments. Most political opponents in the Democratic movement and the new authoritarian poltical directions have been shaken by our appeal to moderate and traditional ideals."
+ nationalism_extended.5.a:0 "Well done indeed."
+ nationalism_extended.5.b:0 "Okay."
+ 
+ nationalism_extended.6.t:0 "Popular speech reception"
+ nationalism_extended.6.d:0 "The public at large seemed to agree with us during the rally. The aftermath has also been good to us, as some printed news and radio speak of our rally and arguments in favorable terms. Most political opponents in the Democratic movement and the new authoritarian poltical directions will have to work hard to contest our moderate and traditionalist arguments even partially."
+ nationalism_extended.6.a:0 "Well done indeed."
+ nationalism_extended.6.b:0 "Okay."
+ 
+ nationalism_extended.7.t:0 "Run-of-the-mill speech reception"
+ nationalism_extended.7.d:0 "The public at large agreed with us or stayed neutral during the speech, which got our arguments out, but not in any spectacular fashion. The aftermath has gone rather unnoticed, with mainly those already agreeing with us writing and speaking of it. Still, printed news and radio speak of our rally and arguments in mostly neutral terms, even among our opponents. Still, just having held the rally and thrown our ideals out there have made the movement grow, and reinforced some beliefs among our supporters."
+ nationalism_extended.7.a:0 "Acceptable."
+ nationalism_extended.7.b:0 "Okay."
+ 
+ nationalism_extended.8.t:0 "Mediocre speech reception"
+ nationalism_extended.8.d:0 "The public at large offered polite smiles and applause during the speech, but probably only because they were already mostly our supporters. We got our arguments out, but not in any spectacular fashion at all. The aftermath has been unimpressive, with mainly those already agreeing with us writing and speaking of it. As printed news and radio speak of our rally and arguments in mostly neutral terms, our political opponents have found some of our arguments easier to contest than we'd like. Still, just having held the rally and thrown our ideals out there have made the movement grow a bit, and somewhat reinforced some beliefs among our supporters."
+ nationalism_extended.8.a:0 "We should expect better than this."
+ nationalism_extended.8.b:0 "Okay."
+ 
+ nationalism_extended.9.t:0 "Disappointing speech reception"
+ nationalism_extended.9.d:0 "The public at large offered polite smiles and dampened applause during the speech, but probably only because they were already mostly our supporters. We got our arguments out clumisly at best. The aftermath has been unimpressive, with mainly those already agreeing with us writing and speaking of it, if at all. As printed news and radio speak of our rally and arguments in mostly neutral or bad terms, our political opponents have found our arguments quite unproblematic to contest. Still, just having held the rally and thrown our ideals out there have made the movement grow a bit, and somewhat reinforced some beliefs among our supporters. Or so we hope at least."
+ nationalism_extended.9.a:0 "We should expect better than this."
+ nationalism_extended.9.b:0 "Okay."
+ 
+ nationalism_extended.10.t:0 "Terrible speech reception"
+ nationalism_extended.10.d:0 "The public at large was utterly unimpressed and only a few gave polite applause at our speech, and those were our ardent supporters. We got our arguments out clumisly or not at all. The aftermath has been harsh, with even those already agreeing with us having to admit the rally was bad. As printed news and radio speak of our rally and arguments in bad terms, our political opponents have found our arguments easy to contest. Still, just having held the rally and thrown our ideals out there have made the movement grow a tiny, tiny bit, and somewhat reinforced some beliefs among those who support us out of pity. It wasn't a good day for us at all..."
+ nationalism_extended.10.a:0 "We should expect better than this."
+ nationalism_extended.10.b:0 "Okay."
+ nationalism_extended.10.c:0 "Let's pay political goodwill, support popular ideas from others and maybe salvage this."
  
  ##News Events
  ne_news.1.t:0 "Austria-Hungary moves Capital to Vienna"

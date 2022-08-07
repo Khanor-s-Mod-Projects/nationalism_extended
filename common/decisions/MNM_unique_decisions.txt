@@ -248,7 +248,7 @@ political_actions = {
 				OR = {
 					has_completed_focus = POL_go_right
 					has_completed_focus = POL_go_left
-					has_completed_focus = POL_liberalism
+					has_completed_focus = POL_elect_a_PSL_leader
 					has_completed_focus = CZE_communist_support
 				}
 			}

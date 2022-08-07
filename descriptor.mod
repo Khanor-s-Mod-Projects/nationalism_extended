@@ -5,7 +5,6 @@ tags={
 	"National Focuses"
 }
 picture="NE_display_picture.jpg"
-version="1.3.1"
-supported_version="1.10.*"
-path="C:/Users/jonpe/Documents/Paradox Interactive/Hearts of Iron IV/mod/nationalism_extended"
+version="1.3.2"
+supported_version="1.11.*"
 remote_file_id="738238411"

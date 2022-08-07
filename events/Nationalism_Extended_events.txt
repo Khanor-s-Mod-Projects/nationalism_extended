@@ -70,6 +70,9 @@ country_event = {
 	}
 }
 
+##################################################
+### Traditionalist political rally with speech ###
+##################################################
 country_event = {
 	id = nationalism_extended.3
 	title = nationalism_extended.3.t
@@ -78,64 +81,123 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		hidden_effect = {
-			random_list = {
-				5 = { set_country_flag = NE_traditionalist_speech_best }
-				10 = { set_country_flag = NE_traditionalist_speech_better }
-				20 = { set_country_flag = NE_traditionalist_speech_good } ### Good Speech
-				30 = { } ### Average speech
-				20 = { set_country_flag = NE_traditionalist_speech_bad } ### Bad Speech
-				10 = { set_country_flag = NE_traditionalist_speech_worse }
-				5 = { set_country_flag = NE_traditionalist_speech_worst }
-			}
-		}
-	}
-	
 	option = {
 		name = nationalism_extended.3.a
-		trigger = { has_country_flag = NE_traditionalist_speech_best }
+		
+		random_list = {
+			5 = { country_event = { id = nationalism_extended.4 hours = 12 } }	### Best speech
+			10 = { country_event = { id = nationalism_extended.5 hours = 12 } }	### Better speech
+			20 = { country_event = { id = nationalism_extended.6 hours = 12 } }	### Good speech
+			30 = { country_event = { id = nationalism_extended.7 hours = 12 } }	### Average speech
+			20 = { country_event = { id = nationalism_extended.8 hours = 12 } }	### Bad speech
+			10 = { country_event = { id = nationalism_extended.9 hours = 12 } }	### Worse speech
+			5 = { country_event = { id = nationalism_extended.10 hours = 12 } }	### Worst speech
+		}
+	}
+}
+
+### Best speech ###
+country_event = {
+	id = nationalism_extended.4
+	title = nationalism_extended.4.t
+	desc = nationalism_extended.4.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.4.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.08
 		}
-		hidden_effect = { clr_country_flag = NE_traditionalist_speech_best }
 	}
 	
 	option = {
-		name = nationalism_extended.3.b
-		trigger = { has_country_flag = NE_traditionalist_speech_better }
+		name = nationalism_extended.4.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.08
+		}
+	}
+	
+	option = {
+		name = nationalism_extended.4.c
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.08
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.02
+		}
+		add_political_power = 20
+	}
+}
+
+### Better speech ###
+country_event = {
+	id = nationalism_extended.5
+	title = nationalism_extended.5.t
+	desc = nationalism_extended.5.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.5.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.07
 		}
-		hidden_effect = { clr_country_flag = NE_traditionalist_speech_better }
 	}
 	
 	option = {
-		name = nationalism_extended.3.c
-		trigger = { has_country_flag = NE_traditionalist_speech_good }
+		name = nationalism_extended.5.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.07
+		}
+	}
+}
+
+### Good speech ###
+country_event = {
+	id = nationalism_extended.6
+	title = nationalism_extended.6.t
+	desc = nationalism_extended.6.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.6.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.06
 		}
-		hidden_effect = { clr_country_flag = NE_traditionalist_speech_good }
 	}
 	
 	option = {
-		name = nationalism_extended.3.p
-		trigger = {
-			NOT = {
-				OR = {
-					has_country_flag = NE_traditionalist_speech_best
-					has_country_flag = NE_traditionalist_speech_better
-					has_country_flag = NE_traditionalist_speech_good
-					has_country_flag = NE_traditionalist_speech_bad
-					has_country_flag = NE_traditionalist_speech_worse
-					has_country_flag = NE_traditionalist_speech_worst
-				}
-			}
+		name = nationalism_extended.6.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.06
 		}
+	}
+}
+
+### Average speech ###
+country_event = {
+	id = nationalism_extended.7
+	title = nationalism_extended.7.t
+	desc = nationalism_extended.7.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.7.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.05
@@ -143,32 +205,101 @@ country_event = {
 	}
 	
 	option = {
-		name = nationalism_extended.3.e
-		trigger = { has_country_flag = NE_traditionalist_speech_bad }
+		name = nationalism_extended.7.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+
+### Bad speech ###
+country_event = {
+	id = nationalism_extended.8
+	title = nationalism_extended.8.t
+	desc = nationalism_extended.8.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.8.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.04
 		}
-		hidden_effect = { clr_country_flag = NE_traditionalist_speech_bad }
 	}
 	
 	option = {
-		name = nationalism_extended.3.f
-		trigger = { has_country_flag = NE_traditionalist_speech_worse }
+		name = nationalism_extended.8.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.04
+		}
+	}
+}
+
+### Worse speech ###
+country_event = {
+	id = nationalism_extended.9
+	title = nationalism_extended.9.t
+	desc = nationalism_extended.9.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.9.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.03
 		}
-		hidden_effect = { clr_country_flag = NE_traditionalist_speech_worse }
 	}
 	
 	option = {
-		name = nationalism_extended.3.g
-		trigger = { has_country_flag = NE_traditionalist_speech_worst }
+		name = nationalism_extended.9.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+	}
+}
+
+### Worst speech ###
+country_event = {
+	id = nationalism_extended.10
+	title = nationalism_extended.10.t
+	desc = nationalism_extended.10.d
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nationalism_extended.10.a
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.02
 		}
-		hidden_effect = { clr_country_flag = NE_traditionalist_speech_worst }
+	}
+	
+	option = {
+		name = nationalism_extended.10.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+	}
+	
+	option = {
+		name = nationalism_extended.10.c
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		add_political_power = -20
 	}
 }

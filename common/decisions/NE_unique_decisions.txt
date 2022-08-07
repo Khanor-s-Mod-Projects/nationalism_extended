@@ -177,6 +177,10 @@ NE_traditionalism_on_the_rise = {
 		
 		icon = generic_civil_support
 		
+		available = {
+			has_political_power > 24
+		}
+		
 		visible = {
 			has_completed_focus = NE_traditionalist_ethos
 			has_country_flag = NE_opened_political_discourse_traditionalism
@@ -288,7 +292,7 @@ NE_HUN_restoration_of_A-H = {
 		
 		remove_effect = {
 			add_political_power = 150
-			set_capital = 4
+			set_capital = { state = 4 }
 			news_event = { id = ne_news.1 days = 7 }
 		}
 		
