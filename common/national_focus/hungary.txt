@@ -236,6 +236,8 @@ focus_tree = {
 
 		cost = 10
 
+		cancel_if_invalid = yes
+
 		ai_will_do = {
 			factor = 70
 		}
@@ -243,11 +245,9 @@ focus_tree = {
 		available = {
 			NOT = { has_war_with = AUS }
 			is_subject = no
-			AUS = {
-				OR = {
-					exists = yes
-					is_subject = no
-				}
+			AUS = {				
+				exists = yes
+				is_subject = no				
 			}
 		}
 
@@ -255,6 +255,7 @@ focus_tree = {
 			OR = {
 				AND = {
 					owns_state = 4
+					owns_state = 848
 					owns_state = 153
 					owns_state = 152
 				}
@@ -311,22 +312,23 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			add_state_claim = 152
-			add_state_claim = 153
-			add_state_claim = 4
 			random_country = {
 				limit = {
 					owns_state = 4
 				}
 				HUN = {
 					create_wargoal = {
-						type = take_claimed_state
+						type = take_state_focus
 						target = PREV
 						expire = 0
-						generator = { 4 152 153 }
+						generator = { 4 152 153 848 }
 					}
 				}
 			}
+			add_state_claim = 152
+			add_state_claim = 153
+			add_state_claim = 848
+			add_state_claim = 4
 		}
 	}
 
@@ -347,6 +349,7 @@ focus_tree = {
 		available = {
 			controls_state = 152
 			controls_state = 153
+			controls_state = 848
 			controls_state = 4
 			is_subject = no
 		}
@@ -363,7 +366,12 @@ focus_tree = {
 		completion_reward = {
 			set_cosmetic_tag = HUN_EMPIRE
 			hidden_effect = { AUS = { set_cosmetic_tag = AUS_NOT_WHITE } }
-			39 = { add_core_of = ROOT }
+			if = {
+				limit = {
+					848 = { is_claimed_by = ROOT }
+				}
+				848 = { remove_claim_by = ROOT }
+			}
 			if = {
 				limit = {
 					153 = { is_claimed_by = ROOT }
@@ -382,11 +390,15 @@ focus_tree = {
 				}
 				4 = { remove_claim_by = ROOT }
 			}
+			848 = { add_core_of = ROOT }
 			153 = { add_core_of = ROOT }
 			152 = { add_core_of = ROOT }
 			4 = { add_core_of = ROOT }
-			102 = { add_core_of = ROOT }
+			39 = { add_core_of = ROOT }
 			736 = { add_core_of = ROOT }
+			852 = { add_core_of = ROOT }
+			102 = { add_core_of = ROOT }
+			853 = { add_core_of = ROOT }
 			69 = { add_core_of = ROOT }
 			9 = { add_core_of = ROOT }
 			75 = { add_core_of = ROOT }
@@ -546,7 +558,6 @@ focus_tree = {
 
 		bypass = {
 			AND = {
-				owns_state = 102
 				owns_state = 103
 				owns_state = 109
 				owns_state = 104
@@ -569,12 +580,21 @@ focus_tree = {
 				}
 				add_state_core = 102
 			}
+			if = {
+				limit = {
+					NOT = {
+						853 = { is_core_of = ROOT }
+					}
+				}
+				add_state_core = 853
+			}
 			add_state_core = 109
 			add_state_core = 103
 			add_state_core = 163
 			add_state_core = 45
 			add_state_core = 764
 			add_state_claim = 104
+			add_state_claim = 804
 			if = {
 				limit = {
 					OR = {
@@ -615,7 +635,9 @@ focus_tree = {
 			is_subject = no
 			AND = {
 				owns_state = 39
+				owns_state = 850
 				owns_state = 736
+				owns_state = 852
 				owns_state = 160
 				owns_state = 159
 			}
@@ -638,10 +660,26 @@ focus_tree = {
 			if = {
 				limit = {
 					NOT = {
+						850 = { is_core_of = ROOT }
+					}
+				}
+				add_state_core = 850
+			}
+			if = {
+				limit = {
+					NOT = {
 						736 = { is_core_of = ROOT }
 					}
 				}
 				add_state_core = 736
+			}
+			if = {
+				limit = {
+					NOT = {
+						852 = { is_core_of = ROOT }
+					}
+				}
+				add_state_core = 852
 			}
 			add_state_claim = 160
 			add_state_claim = 159
@@ -652,7 +690,7 @@ focus_tree = {
 				add_ai_strategy = {
 					type = conquer
   					id = ITA
-  					value = 50
+  					value = 20
 				}
 			}
 			if = {
@@ -662,12 +700,12 @@ focus_tree = {
 				add_ai_strategy = {
 					type = conquer
   					id = ITA
-  					value = 50
+  					value = 20
 				}
 			}
 			if = {
 				limit = {
-					160 = { is_controlled_by = ITA }
+					852 = { is_controlled_by = ITA }
 				}
 				add_ai_strategy = {
 					type = conquer
@@ -985,6 +1023,7 @@ focus_tree = {
 				add_state_core = 184
 				add_state_core = 731
 				add_state_core = 106
+				add_state_core = 803
 				
 				hidden_effect = {
 					add_ai_strategy = {
@@ -1813,6 +1852,9 @@ focus_tree = {
 			153 = {
 				NOT = { is_owned_by = AUS }
 			}
+			848 = {
+				NOT = { is_owned_by = AUS }
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -1850,6 +1892,7 @@ focus_tree = {
 					is_faction_leader = yes
 				}
 				is_subject = no
+				ITA_is_kinda_fascist = yes
 			}
 		}
 
@@ -4233,9 +4276,7 @@ focus_tree = {
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
-				technology = heavy_fighter1
-				technology = heavy_fighter2
-				technology = heavy_fighter3
+				category = cat_heavy_fighter
 			}
 		}
 	}
@@ -4274,10 +4315,7 @@ focus_tree = {
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
-				technology = early_fighter
-				technology = fighter1
-				technology = fighter2
-				technology = fighter3
+				category = light_fighter
 			}
 		}
 	}
@@ -4316,9 +4354,7 @@ focus_tree = {
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
-				technology = CAS1
-				technology = CAS2
-				technology = CAS3
+				category = cas_bomber
 			}
 		}
 	}
@@ -4410,9 +4446,22 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_tech = fighter3
-				has_tech = heavy_fighter3
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				NOT = {
+					has_tech = fighter3
+					has_tech = heavy_fighter3
+				}
+			}
+			else = {
+				NOT = {
+					has_tech = advanced_small_airframe
+					has_tech = advanced_medium_airframe
+				}
 			}
 			OR = {
 				GER = {
@@ -4492,9 +4541,22 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_tech = CAS3
-				has_tech = tactical_bomber3
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				NOT = {
+					has_tech = CAS3
+					has_tech = tactical_bomber3
+				}
+			}
+			else = {
+				NOT = {
+					has_tech = advanced_small_airframe
+					has_tech = advanced_medium_airframe
+				}
 			}
 			OR = {
 				GER = {

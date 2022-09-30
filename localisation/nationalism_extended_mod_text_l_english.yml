@@ -109,7 +109,7 @@
  nationalism_extended.5.a:0 "Well done indeed."
  nationalism_extended.5.b:0 "Okay."
  
- nationalism_extended.6.t:0 "Popular speech reception"
+ nationalism_extended.6.t:0 "Warm speech reception"
  nationalism_extended.6.d:0 "The public at large seemed to agree with us during the rally. The aftermath has also been good to us, as some printed news and radio speak of our rally and arguments in favorable terms. Most political opponents in the Democratic movement and the new authoritarian poltical directions will have to work hard to contest our moderate and traditionalist arguments even partially."
  nationalism_extended.6.a:0 "Well done indeed."
  nationalism_extended.6.b:0 "Okay."
@@ -224,31 +224,31 @@
  
  ##Icelandic land reintegration
  NE_ICE_reintegrate_faereyjar:0 "Reintegrate Færeyjar"
- NE_ICE_fully_incorporate_faereyjar:0 "Fully Incorporate Færeyjar"                      ### Currently not used
+ NE_ICE_fully_incorporate_faereyjar:0 "Fully incorporate Færeyjar"                      ### Currently not used
  NE_ICE_reintegrate_graenland:0 "Reintegrate Grænland"
- NE_ICE_fully_incorporate_graenland:0 "Fully Incorporate Grænland"                      ### Currently not used
+ NE_ICE_fully_incorporate_graenland:0 "Fully incorporate Grænland"                      ### Currently not used
  ##Norwegian land reintegration
  NE_NOR_reintegrate_faeroeyane:0 "Reintegrate Færøyane"
- NE_NOR_fully_incorporate_faeroeyane:0 "Fully Incorporate Færøyane"                     ### Currently not used
+ NE_NOR_fully_incorporate_faeroeyane:0 "Fully incorporate Færøyane"                     ### Currently not used
  NE_NOR_reintegrate_island:0 "Reintegrate Island"
- NE_NOR_fully_incorporate_island:0 "Fully Incorporate Island"                           ### Currently not used
+ NE_NOR_fully_incorporate_island:0 "Fully incorporate Island"                           ### Currently not used
  NE_NOR_reintegrate_groenland:0 "Reintegrate Grønland"
- NE_NOR_fully_incorporate_groenland:0 "Fully Incorporate Grønland"                      ### Currently not used
+ NE_NOR_fully_incorporate_groenland:0 "Fully incorporate Grønland"                      ### Currently not used
  ##Danish land reintegration
  NE_DEN_reintegrate_skaane:0 "Reintegrate Skåne"
- NE_DEN_fully_incorporate_skaane:0 "Fully Incorporate Skåne"                            ### Currently not used
+ NE_DEN_fully_incorporate_skaane:0 "Fully incorporate Skåne"                            ### Currently not used
  NE_DEN_reintegrate_slesvig-holsten:0 "Reintegrate Slesvig-Holsten"
- NE_DEN_fully_incorporate_slesvig-holsten:0 "Fully Incorporate Slesvig-Holsten"         ### Currently not used
+ NE_DEN_fully_incorporate_slesvig-holsten:0 "Fully incorporate Slesvig-Holsten"         ### Currently not used
  ##Finnish land reintegration
  NE_FIN_reintegrate_aeaeninen:0 "Reintegrate Ääninen"
- NE_FIN_fully_incorporate_aeaeninen:0 "Fully Incorporate Ääninen"
+ NE_FIN_fully_incorporate_aeaeninen:0 "Fully incorporate Ääninen"
  NE_FIN_reintegrate_aunus:0 "Reintegrate Aunus"
- NE_FIN_fully_incorporate_aunus:0 "Fully Incorporate Aunus"
+ NE_FIN_fully_incorporate_aunus:0 "Fully incorporate Aunus"
  ##Russian land reintegration
  NE_SOV_reintegrate_onega:0 "Reintegrate Onega"
- NE_SOV_fully_incorporate_onega:0 "Fully Incorporate Onega"
+ NE_SOV_fully_incorporate_onega:0 "Fully incorporate Onega"
  NE_SOV_reintegrate_olonets:0 "Reintegrate Olonets"
- NE_SOV_fully_incorporate_olonets:0 "Fully Incorporate Olonets"
+ NE_SOV_fully_incorporate_olonets:0 "Fully incorporate Olonets"
  ##Irish land reintegration
  NE_IRE_reintegrate_tuaisceart_eireann:0 "Reintegrate Tuaisceart Éireann"               ### Obviously Northern Ireland
  NE_IRE_fully_incorporate_tuaisceart_eireann:0 "Fully incorporate Tuaisceart Éireann"
@@ -262,10 +262,10 @@
  ##French land reintegration
  NE_FRA_reintegrate_wallonie:0 "Reintegrate Wallonie"
  NE_FRA_reintegrate_savoie:0 "Reintegrate Savoie"
- NE_FRA_fully_incorporate_savoie:0 "Fully Incorporate Savoie"
+ NE_FRA_fully_incorporate_savoie:0 "Fully incorporate Savoie"
  ##Italian land reintegration
  NE_ITA_reintegrate_savoia:0 "Reintegrate Savoia"
- NE_ITA_fully_incorporate_savoia:0 "Fully Incorporate Savoia"
+ NE_ITA_fully_incorporate_savoia:0 "Fully incorporate Savoia"
  ##German land reintegration
  NE_GER_reintegrate_memel:0 "Reintegrate Memel"
  NE_GER_reintegrate_danzig:0 "Reintegrate Danzig"
@@ -276,10 +276,16 @@
  ##Austrian land reintegration
  NE_AUS_reintegrate_sudtirol:0 "Reintegrate Südtirol"
  NE_AUS_reunite_tirol:0 "Reunite Tirol"
+ NE_AUS_reintegrate_trient:0 "Reintegrate Trient"
+ NE_AUS_fully_incorporate_trient:0 "Fully incorporate Trient"
+ NE_AUS_reintegrate_kustenland:0 "Reintegrate Küstenland"
+ NE_AUS_fully_incorporate_kustenland:0 "Fully incorporate Küstenland"
  NE_AUS_reintegrate_istrien:0 "Reintegrate Istrien"
  NE_AUS_fully_incorporate_istrien:0 "Fully incorporate Istrien"
  NE_AUS_reintegrate_krain:0 "Reintegrate Krain"
  NE_AUS_fully_incorporate_krain:0 "Fully incorporate Krain"
+ NE_AUS_reintegrate_laibach:0 "Reintegrate Laibach"
+ NE_AUS_fully_incorporate_laibach:0 "Fully incorporate Laibach"
  NE_AUS_reintegrate_bohemian_hills:0 "Reintegrate the Bohemian Hills"
  NE_AUS_fully_incorporate_bohemian_hills:0 "Fully incorporate the Bohemian Hills"
  NE_AUS_reintegrate_bohemia:0 "Reintegrate Bohemia"
@@ -299,6 +305,8 @@
  NE_HUN_fully_incorporate_karpatalja:0 "Fully incorporate Kárpátalja"
  NE_HUN_reintegrate_vajdasag:0 "Reintegrate Vajdaság"
  NE_HUN_fully_incorporate_vajdasag:0 "Fully incorporate Vajdaság"
+ NE_HUN_reintegrate_northern_transylvania:0 "Reintegrate Northern Transylvania"         ### Northern Transylvania (Észak-Erdély in Hungarian)
+ NE_HUN_fully_incorporate_northern_transylvania:0 "Fully incorporate Northern Transylvania"
  ##Lithuanian land reintegration
  NE_LIT_reintegrate_klaipeda:0 "Reintegrate Klaipeda"
  NE_LIT_reintegrate_vilnius:0 "Reintegrate Vilnius"
